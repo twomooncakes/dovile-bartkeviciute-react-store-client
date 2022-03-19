@@ -20,7 +20,7 @@ class Nav extends Component {
   async componentDidMount() {
     const navData = await queryFetch(categoriesQuery);
     this.setState({ categories: navData.data.categories }); 
-    localStorage.setItem("currentCategory", window.location.pathname.slice(1));
+    window.location.pathname !== "/" && this.context.changeCurrentCat(window.location.pathname.slice(1));
   }
 
   render() { 
