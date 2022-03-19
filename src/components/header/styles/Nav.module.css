@@ -1,0 +1,17 @@
+nav {
+  display: flex;
+  height: 100%;
+}
+
+nav a {
+  text-transform: uppercase;
+  margin-right: 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+nav a:last-child {
+  margin-right: 0;
+}
