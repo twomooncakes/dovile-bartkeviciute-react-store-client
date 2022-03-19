@@ -23,9 +23,9 @@ class Card extends Component {
           {!inStock && <div className={css.stock_text_wrapper}><h3 className={css.stock_text}>out of stock</h3></div> }
 
           <img className={css.main_image} src={gallery[0]} alt={name} />
-          
+
           <div className={css.cart_btn_wrapper}>
-            <Link to={`/product/${id}`}>
+            <Link onClick={() => this.context.changeCurrentProductID(id)} to={`/product/${id}`}>
               <RoundButton><img src={Cart} alt="cart symbol" /></RoundButton>
             </Link>
           </div>

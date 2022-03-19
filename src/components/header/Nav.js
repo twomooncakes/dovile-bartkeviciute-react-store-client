@@ -27,7 +27,7 @@ class Nav extends Component {
     return (
       <nav>
         {this.state.categories.map(cat => (
-          <NavLink className={(this.context.currentCat === cat.name) ? "active" : ""} onClick={() => this.context.changeCurrentCat(cat.name)} key={cat.name} to={cat.name}>
+          <NavLink className={(this.context.currentCat === cat.name) ? "active" : ""} onClick={() => this.context.changeCurrentCat(cat.name)} key={cat.name} to={`/${cat.name}`}>
             {cat.name}
           </NavLink>
         ))}

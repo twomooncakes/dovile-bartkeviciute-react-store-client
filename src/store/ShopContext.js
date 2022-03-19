@@ -6,7 +6,7 @@ export class ShopProvider extends Component {
   state = {
     currentCat: localStorage.getItem("currentCategory") || "all",
     currentCurrency: localStorage.getItem("currentCurrency") || "USD",
-    // currentProduct: {},
+    currentProductID: null,
   }
 
   changeCurrentCat = (newCat) => {
@@ -21,17 +21,24 @@ export class ShopProvider extends Component {
     localStorage.setItem("currentCurrency", newCurrency);
   }
 
+  changeCurrentProductID = (newProductID) => {
+    console.log("changing product");
+    this.setState({ currentProductID: newProductID });
+  }
+
   render() {
     const { children } = this.props;
-    const { currentCat, currentCurrency } = this.state;
-    const { changeCurrentCat, changeCurrentCurrency } = this;
+    const { currentCat, currentCurrency, currentProductID } = this.state;
+    const { changeCurrentCat, changeCurrentCurrency, changeCurrentProductID } = this;
     return (
       <ShopContext.Provider
         value={{
           currentCat,
           currentCurrency,
+          currentProductID,
           changeCurrentCat,
           changeCurrentCurrency,
+          changeCurrentProductID,
         }}
       >
         {children}
