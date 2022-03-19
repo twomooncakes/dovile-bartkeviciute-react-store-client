@@ -1,0 +1,11 @@
+.round_btn {
+  background-color: var(--accentColor);
+  color: var(--lightColor);
+  border-radius: 50%;
+  border: 0;
+  height: 52px;
+  width: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
