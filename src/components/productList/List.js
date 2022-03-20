@@ -44,12 +44,11 @@ const productsByCategoryQuery = (categoryTitle) => {
 class List extends Component {
   static contextType = ShopContext;
 
-  state = { products: [], category: localStorage.getItem("currentCategory") }
+  state = { products: [], category: localStorage.getItem("currentCategory") || "all" }
 
   getProductByCategory = async () => {
     const productsData = await queryFetch(productsByCategoryQuery(this.context.currentCat));
     this.setState({ products: productsData.data.category.products }); 
-    
   }
 
   componentDidMount() {
