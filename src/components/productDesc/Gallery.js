@@ -27,7 +27,7 @@ class Gallery extends Component {
         <div className={css.gallery_side}>
           {galleryImages.length > 0 && galleryImages.map((image,idx) => {
             return (
-              <div className={css.thumbnail_container} key={idx}>
+              <div className={css.thumbnail_container} key={idx} onClick={() => this.changeSpotlightImage(idx)}>
                 <img src={image} alt={`${name}-${idx}`}/>
               </div>
             );

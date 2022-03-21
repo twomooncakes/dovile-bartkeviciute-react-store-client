@@ -2,6 +2,7 @@ import { Component } from "react";
 import css from "./styles/CurrencySwitcher.module.css";
 import Chevron from "../../assets/ui-icons/chevron.svg";
 import { queryFetch } from "../../utils/helpers";
+import ShopContext from "../../store/ShopContext";
 
 const currenciesQuery = `
   {
@@ -13,7 +14,8 @@ const currenciesQuery = `
 `;
 
 class CurrencySwitch extends Component {
-  state = { chevronToggled: false, currencies: [], currentCurrency: "USD" } 
+  static contextType = ShopContext;
+  state = { chevronToggled: false, currencies: [] } 
 
   async componentDidMount() {
     const currencyData = await queryFetch(currenciesQuery);
@@ -24,13 +26,36 @@ class CurrencySwitch extends Component {
     this.setState({ chevronToggled: !this.state.chevronToggled });
   }
 
-
   render() { 
+    const { chevronToggled, currencies } = this.state;
+    const { currentCurrency } = this.context;
     return (
       <div className={css.nav_currency} onClick={this.toggleChevron}>
-        {/* placeholder */}
-        <p>$</p>
-        <img className={this.state.chevronToggled ? "flip-x" : ""} src={Chevron} alt="vertical chevron for currency switcher" />
+        <p>{currentCurrency.symbol}</p>
+        <img 
+          className={chevronToggled ? "flip-x" : ""} 
+          src={Chevron} 
+          alt="vertical chevron for currency switcher" 
+        />
+        {chevronToggled &&
+
+        <ul className={css.currency_overlay_wrapper}>
+          {currencies.map(currency => {
+            return (
+              <li 
+                key={currency.label}
+                onClick={() => this.context.changeCurrentCurrency({ 
+                  label: currency.label,
+                  symbol: currency.symbol 
+                })} 
+              >
+                {currency.symbol} {currency.label}
+              </li>
+            )
+          })}
+        </ul>
+
+        }
       </div>
     );
   }

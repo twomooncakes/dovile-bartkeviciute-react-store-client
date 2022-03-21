@@ -16,6 +16,9 @@
   --mediumFontSize: 18px;
   --largeFontSize: 24px;
   --hugeFontSize: 32px;
+
+  /* Misc */
+  --boxShadowValues: 0px 4px 35px rgba(168, 172, 176, 0.19);
 }
 
 * {

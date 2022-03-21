@@ -13,10 +13,9 @@ export async function queryFetch(dataQuery) {
 }
 
 export function getPrice(pricesArr, currentCurrency) {
-  console.log(pricesArr);
   return (
     pricesArr.map(obj => {
-      if(obj.currency.label === currentCurrency) {
+      if(obj.currency.label === currentCurrency.label) {
         return `${obj.currency.symbol}${obj.amount}`;
       }
     })

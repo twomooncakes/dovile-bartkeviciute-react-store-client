@@ -5,7 +5,7 @@ const ShopContext = React.createContext();
 export class ShopProvider extends Component {
   state = {
     currentCat: localStorage.getItem("currentCategory") || "all",
-    currentCurrency: localStorage.getItem("currentCurrency") || "USD",
+    currentCurrency: JSON.parse(localStorage.getItem("currentCurrency")) || { label: "USD", symbol: "$" },
     currentProductID: localStorage.getItem("currentProductID"),
   }
 
@@ -18,7 +18,7 @@ export class ShopProvider extends Component {
   changeCurrentCurrency = (newCurrency) => {
     console.log("changing currency");
     this.setState({ currentCurrency: newCurrency });
-    localStorage.setItem("currentCurrency", newCurrency);
+    localStorage.setItem("currentCurrency", JSON.stringify(newCurrency));
   }
 
   changeCurrentProductID = (newProductID) => {

@@ -1,9 +1,30 @@
 .nav_currency {
   cursor: pointer;
+  width: 3rem;
+  text-align: right;
 }
 
 .nav_currency p {
   display: inline;
-  padding: 0.75rem 0.5rem;
+  padding-right: 0.5rem;
   font-size: var(--mediumFontSize);
+}
+
+.currency_overlay_wrapper {
+  box-shadow: var(--boxShadowValues);
+  background-color: var(--lightColor);
+  position: absolute;
+  margin-top: 1rem;
+  list-style-type: none;
+  text-align: left;
+  z-index: 5;
+}
+
+.currency_overlay_wrapper li {
+  padding: 1rem 2rem 1rem 1rem;
+}
+
+.currency_overlay_wrapper li:hover {
+  background-color: var(--accentColor);
+  color: var(--lightColor);
 }
