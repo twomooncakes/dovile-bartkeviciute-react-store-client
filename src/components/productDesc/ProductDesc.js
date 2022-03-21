@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import css from "./styles/ProductDesc.module.css";
 import { Link } from "react-router-dom";
 import Button from "../UI/Button";
@@ -21,7 +21,6 @@ class ProductDesc extends Component {
 
   render() { 
     const { name, brand, attributes, prices, description } = this.state.product;
-    console.log(prices);
     return (
       <section className={css.product_desc}>
         <div className={css.product_title}>
@@ -33,13 +32,20 @@ class ProductDesc extends Component {
 
         {prices && <PriceDisplay prices={prices} /> }
 
-        <Link to="/cart">
-          <Button bg={"accentColorBG"} txtColor={"lightColorTxt"}>add to cart</Button>
-        </Link>
-        
-        <div className={css.description}>
-          <p>{description}</p>
+        <div className={css.cart_btn_wrapper}>
+          <Link to="/cart">
+            <Button bg={"accentColorBG"} txtColor={"lightColorTxt"}>add to cart</Button>
+          </Link>
         </div>
+        
+        <div 
+          className={css.description}
+          dangerouslySetInnerHTML={{
+            __html: description
+          }}
+        >
+        </div>
+
       </section>
     );
   }

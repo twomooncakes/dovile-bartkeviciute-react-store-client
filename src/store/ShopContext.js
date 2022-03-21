@@ -6,7 +6,7 @@ export class ShopProvider extends Component {
   state = {
     currentCat: localStorage.getItem("currentCategory") || "all",
     currentCurrency: localStorage.getItem("currentCurrency") || "USD",
-    currentProductID: null,
+    currentProductID: localStorage.getItem("currentProductID"),
   }
 
   changeCurrentCat = (newCat) => {
@@ -24,6 +24,7 @@ export class ShopProvider extends Component {
   changeCurrentProductID = (newProductID) => {
     console.log("changing product");
     this.setState({ currentProductID: newProductID });
+    localStorage.setItem("currentProductID", newProductID);
   }
 
   render() {

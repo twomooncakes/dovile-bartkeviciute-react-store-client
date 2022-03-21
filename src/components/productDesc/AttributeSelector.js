@@ -8,6 +8,7 @@ class AttributeSelector extends Component {
     return (
       <div className={css.attribute_selector}>
         {this.state.attributes.map(attr => {
+          const isSwatch = attr.type === "swatch";
           return (
             <div className={css.attribute} key={attr.id}>
               <div className={css.attribute_name}>
@@ -15,9 +16,15 @@ class AttributeSelector extends Component {
               </div>
               <div className={css.attribute_options}>
                 {attr.items.map(item => {
+                  let bgColor = {};
+                  if(isSwatch) bgColor.backgroundColor = `${item.value}`;
                   return (
-                    <div className={css.attribute_option} key={item.id}>
-                      <p>{item.value}</p>
+                    <div 
+                      className={`${css.attribute_option} ${isSwatch ? css.swatch : "" }`} 
+                      style={bgColor}
+                      key={item.id}
+                      >
+                      <p>{!isSwatch && item.value}</p>
                     </div>
                   )
                 })}

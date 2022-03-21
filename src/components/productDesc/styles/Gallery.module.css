@@ -1,13 +1,29 @@
+.gallery_side::-webkit-scrollbar {
+  position: absolute;
+  margin: 2rem;
+}
+
 .gallery {
   display: flex;
   height: inherit;
+  width: inherit;
 }
 
 .gallery_side {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  margin-right: 0.95rem;
+  padding-right: 0.5rem;
+  min-width: 9rem;
+  max-width: 9rem;
+  position: relative;
+  scrollbar-width: thin;
+}
+
+.gallery_side:hover {
   overflow-y: scroll;
-  margin-right: 2rem;
+  padding-right: 0;
 }
 
 .gallery_side .thumbnail_container {
@@ -28,12 +44,14 @@
 }
 
 .gallery_spotlight {
-
+  min-width: 35vw;
+  height: inherit;
 }
 
 .gallery_spotlight img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
   object-fit: cover;
   object-position: center;
 }

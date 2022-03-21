@@ -2,18 +2,20 @@
   height: inherit;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  margin-right: 3rem;
+  margin: 0 2.5rem;
+  min-width: 14.9rem;
+  max-width: 18.825rem;
 }
 
 .product_title {
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .brand {
   font-weight: var(--boldWeight);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .product_desc h4 {
@@ -21,10 +23,20 @@
   text-transform: uppercase;
 }
 
-.description {
-  overflow-y: scroll;
+.cart_btn_wrapper {
+  width: 100%;
 }
 
-.description p {
+.description {
+  width: 100%;
+  overflow: hidden;
+  margin: 3rem 0;
+  padding-right: 0.5rem;
+  line-height: 26px;
+  scrollbar-width: thin;
+}
 
+.description:hover {
+  overflow-y: scroll;
+  padding-right: 0;
 }

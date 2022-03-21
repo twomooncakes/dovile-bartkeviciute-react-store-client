@@ -29,6 +29,23 @@ body {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   color: #1D1F22;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--accentColor) var(--lightColor);
+}
+
+body::-webkit-scrollbar {
+  width: 11px;
+  height: 25%;
+  right: -1rem;
+}
+body::-webkit-scrollbar-track {
+  background: var(--darkColor);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--darkColor) ;
+  border-radius: 6px;
+  border: 3px solid var(--darkColor);
 }
 
 h1, h2, h3 {
@@ -48,6 +65,11 @@ a {
 
 .btn {
   cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+}
+
+ul {
+  padding-left: 0;
 }
 
 .flip-x {
