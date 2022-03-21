@@ -1,0 +1,32 @@
+.attribute_selector {
+  width: 100%;
+}
+
+.attribute {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.5rem;
+}
+
+.attribute:last-of-type {
+  margin-bottom: 0;
+}
+
+.attribute_name {
+  margin-bottom: 1.25rem;
+}
+
+.attribute_options {
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+
+.attribute_option {
+  border: 1px solid var(--darkColor);
+  padding: 0.8rem 1.2rem;
+  margin-right: 0.8rem;
+}
+
+.attribute_option:hover {
+  cursor: pointer;
+}

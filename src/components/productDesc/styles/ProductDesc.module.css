@@ -1,0 +1,30 @@
+.product_desc {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+.product_title {
+  width: 100%;
+}
+
+.brand {
+  font-weight: var(--boldWeight);
+  margin-bottom: 1rem;
+}
+
+.product_desc h4 {
+  font-size: var(--mediumFontSize);
+  text-transform: uppercase;
+}
+
+.description {
+  overflow-y: scroll;
+}
+
+.description p {
+
+}

@@ -1,0 +1,6 @@
+.button {
+  border-color: transparent;
+  border-radius: 0.1rem;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+}

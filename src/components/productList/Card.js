@@ -4,6 +4,7 @@ import RoundButton from "../UI/RoundButton";
 import Cart from "../../assets/ui-icons/cart-light.svg";
 import css from "./styles/Card.module.css";
 import { Link } from "react-router-dom";
+import { getPrice } from "../../utils/helpers";
 
 class Card extends Component {
   static contextType = ShopContext;
@@ -34,11 +35,9 @@ class Card extends Component {
         
         <div className={css.product_info}>
           <h3>{name}</h3>
-          <h3 className={css.product_price}> { prices.map(obj => {
-            if(obj.currency.label === currentCurrency) {
-              return `${obj.currency.symbol}${obj.amount}`;
-            }
-          })}</h3>
+          <h3 className={css.product_price}>
+            {getPrice(prices, currentCurrency)}
+          </h3>
         </div>
       </div>
     );

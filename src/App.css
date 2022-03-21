@@ -4,7 +4,7 @@
   /* Theme Colors */
   --accentColor: #5ECE7B;
   --lightColor: #FFFFFF;
-  --blackColor: #1D1F22;
+  --darkColor: #1D1F22;
 
   /* Font Weight */
   --boldWeight: 600;
@@ -14,6 +14,8 @@
   /* Font Size */
   --smallFontSize: 16px;
   --mediumFontSize: 18px;
+  --largeFontSize: 24px;
+  --hugeFontSize: 32px;
 }
 
 * {
@@ -56,4 +58,34 @@ a {
 
 main {
   margin: 0 10%;
+}
+
+/* Color Options */
+
+/* Background Color */
+
+.accentColorBG {
+  background-color: var(--accentColor);
+}
+
+.lightColorBG {
+  background-color: var(--lightColor);
+}
+
+.darkColorBG {
+  background-color: var(--darkColor);
+}
+
+/* Text Color */
+
+.accentColorTxt {
+  color: var(--accentColor);
+}
+
+.lightColorTxt {
+  color: var(--lightColor);
+}
+
+.darkColorTxt {
+  color: var(--darkColor);
 }

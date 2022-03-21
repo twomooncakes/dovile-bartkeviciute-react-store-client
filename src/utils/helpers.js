@@ -11,3 +11,14 @@ export async function queryFetch(dataQuery) {
   console.log(data.data);
   return data;
 }
+
+export function getPrice(pricesArr, currentCurrency) {
+  console.log(pricesArr);
+  return (
+    pricesArr.map(obj => {
+      if(obj.currency.label === currentCurrency) {
+        return `${obj.currency.symbol}${obj.amount}`;
+      }
+    })
+  )
+}

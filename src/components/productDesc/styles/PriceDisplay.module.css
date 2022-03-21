@@ -1,0 +1,12 @@
+.price_display {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.amount {
+  margin-top: 1.25rem;
+  font-size: var(--largeFontSize);
+  font-weight: var(--boldWeight);
+}
