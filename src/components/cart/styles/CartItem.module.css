@@ -1,0 +1,16 @@
+.cart_item_container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-top: 1px solid var(--greyColor);
+  padding: 1.25rem 0;
+}
+
+.item_controls {
+  display: flex;
+  align-items: center;
+}
+
+.mini_gallery_container img {
+  width: 100px;
+}

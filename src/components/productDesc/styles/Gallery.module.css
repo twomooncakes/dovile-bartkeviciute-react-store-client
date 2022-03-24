@@ -43,6 +43,10 @@
   object-fit: cover;
 }
 
+.gallery_side img:hover {
+  cursor: pointer;
+}
+
 .gallery_spotlight {
   min-width: 35vw;
   height: inherit;

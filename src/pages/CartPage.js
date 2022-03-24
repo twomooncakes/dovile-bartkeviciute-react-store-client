@@ -1,11 +1,15 @@
 import { Component } from "react";
+import CartList from "../components/cart/CartList";
 
 class CartPage extends Component {
   state = {  } 
   render() { 
     return (
       <main>
-        <h2>Cart</h2>
+        <div>
+          <h2 className="bold-title-heading">Cart</h2>
+        </div>
+        <CartList />
       </main>
     );
   }

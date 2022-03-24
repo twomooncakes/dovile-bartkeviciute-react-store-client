@@ -4,8 +4,17 @@
   flex-direction: column;
   align-items: center;
   margin: 0 2.5rem;
-  min-width: 14.9rem;
-  max-width: 18.825rem;
+  /* min-width: 14.9rem;
+  max-width: 18.825rem; */
+  min-width: 360px;
+  scrollbar-width: thin;
+  padding-right: 0.5rem;
+  overflow: hidden;
+}
+
+.product_desc:hover {
+  overflow-y: auto;
+  padding-right: 0;
 }
 
 .product_title {
@@ -29,14 +38,14 @@
 
 .description {
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   margin: 3rem 0;
-  padding-right: 0.5rem;
+  /* padding-right: 0.5rem; */
   line-height: 26px;
-  scrollbar-width: thin;
+  /* scrollbar-width: thin; */
 }
 
 .description:hover {
-  overflow-y: scroll;
-  padding-right: 0;
+  /* overflow-y: scroll;
+  padding-right: 0; */
 }
