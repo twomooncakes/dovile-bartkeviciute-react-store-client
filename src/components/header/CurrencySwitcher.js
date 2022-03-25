@@ -1,6 +1,6 @@
 import { Component } from "react";
 import css from "./styles/CurrencySwitcher.module.css";
-import Chevron from "../../assets/ui-icons/chevron.svg";
+import Chevron from "../../assets/ui-icons/chevron-dark.svg";
 import { queryFetch } from "../../utils/helpers";
 import ShopContext from "../../store/ShopContext";
 

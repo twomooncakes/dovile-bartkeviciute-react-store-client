@@ -1,0 +1,26 @@
+.quantity_control {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.quantity_btn {
+  background-color: var(--lightColor);
+  font-family: var(--mainFont);
+  font-size: var(--hugeFontSize);
+  font-weight: var(--lightWeight);
+  border: 1px solid var(--darkColor);
+  height: 50px;
+  width: 50px;
+}
+
+.quantity_btn:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.amount {
+  font-size: var(--largeFontSize);
+}

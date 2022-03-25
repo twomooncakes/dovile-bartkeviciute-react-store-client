@@ -7,6 +7,9 @@
   --darkColor: #1D1F22;
   --greyColor: #E5E5E5;
 
+  /* FONT VARIABLES */
+  --mainFont: 'Raleway', sans-serif;
+
   /* Font Weight */
   --boldWeight: 600;
   --regularWeight: 400;
@@ -30,7 +33,7 @@
 body {
   box-sizing: border-box;
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--mainFont);
   font-weight: 400;
   color: #1D1F22;
 
@@ -80,6 +83,15 @@ ul {
 .flip-x {
   transform: rotateX(180deg);
 }
+
+.flip-y {
+  transform: rotateY(180deg);
+}
+
+.regularFontWeight {
+  font-weight: var(--regularWeight);
+}
+
 
 /* Page Layout */
 main {

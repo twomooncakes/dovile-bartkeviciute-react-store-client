@@ -1,16 +1,25 @@
 import { Component } from "react";
 import css from './styles/NavCart.module.css';
 import Cart from "../../assets/ui-icons/cart-dark.svg";
-import { Link } from "react-router-dom";
+import MiniCart from "../cart/MiniCart";
 
 class NavCart extends Component {
-  state = {  } 
+  state = { miniCartDisplay: false } 
+
+  toggleMiniCartDisplay = () => {
+    this.setState({ miniCartDisplay: !this.state.miniCartDisplay });
+  }
+
   render() { 
+    const { miniCartDisplay } = this.state;
     return (
       <div className={css.nav_cart}>
-        <Link to={"/cart"}>
-          <img src={Cart} alt="shopping overlay button" />
-        </Link>
+        <img 
+          src={Cart} 
+          alt="shopping overlay button"
+          onClick={this.toggleMiniCartDisplay} 
+        />
+        {miniCartDisplay && <MiniCart />}
       </div>
     );
   }

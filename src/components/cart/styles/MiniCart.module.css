@@ -1,0 +1,32 @@
+.mini_cart_overlay {
+  box-shadow: var(--boxShadowValues);
+  background-color: var(--lightColor);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin: 1.8rem 0 0 -18rem;
+  padding: 1.25rem;
+  z-index: 5;
+}
+
+.mini_cart_header {
+  margin-bottom: 1.25rem;
+}
+
+.mini_cart_items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mini_cart_footer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.mini_cart_btns {
+  display: flex;
+  gap: 0.8rem;
+}
+

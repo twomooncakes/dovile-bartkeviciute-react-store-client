@@ -9,8 +9,32 @@
 .item_controls {
   display: flex;
   align-items: center;
+  gap: 0.8rem;
 }
 
-.mini_gallery_container img {
+.mini_gallery_container {
+  height: 100%;
+}
+
+.mini_gallery_container .product_image {
   width: 100px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mini_gallery_overlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  bottom: 58%;
+}
+
+.chevron {
+  border: 1px solid red;
+}
+
+.chevron:hover {
+  cursor: pointer;
+  box-shadow: var(--boxShadowValues);
 }
