@@ -13,8 +13,8 @@ class CartItem extends Component {
   state = { currentImageID: 0, quantity: 0 } 
 
   changeCurrentImageID(galleryArr) {
-    // put gallery arr length - 1
-    this.setState({ currentImageID: this.state.currentImageID <= galleryArr.length-1 ? this.state.currentImageID + 1 : 0 });
+    // recheck
+    this.setState({ currentImageID: this.state.currentImageID < galleryArr.length-1 ? this.state.currentImageID + 1 : 0 });
   }
 
   render() { 
@@ -24,7 +24,7 @@ class CartItem extends Component {
     return (
       <div className={css.cart_item_container}>
         <section className={css.item_info}>
-          <h2>{brand}</h2>
+          <h2 className="boldFontWeight">{brand}</h2>
           <Link to={`/product/${id}`}>
             <h2>{name}</h2>
           </Link>
@@ -39,8 +39,16 @@ class CartItem extends Component {
           <div className={css.mini_gallery_container}>
             <img className={css.product_image} src={gallery[currentImageID]} />
             <div className={css.mini_gallery_overlay}>
-              <img className={css.chevron} src={ChevronLight} />
-              <img className={`flip-y ${css.chevron}`} src={ChevronLight} />
+              <img 
+                className={css.chevron} 
+                src={ChevronLight}
+                onClick={() => this.changeCurrentImageID(gallery)} 
+              />
+              <img 
+                className={`flip-y ${css.chevron}`} 
+                src={ChevronLight} 
+                onClick={() => this.changeCurrentImageID(gallery)}
+              />
             </div>
           </div>
         </section>
