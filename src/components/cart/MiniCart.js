@@ -10,17 +10,18 @@ class MiniCart extends Component {
   state = {  } 
   render() { 
     const { shoppingCart, currentCurrency } = this.context;
-    const { itemCount, totalPrice } = this.context.shoppingCart.cartInfo;
+    let itemCount = 0;
+    let totalPrice = 0;
     return (
       <div className={css.mini_cart_overlay}>
         <div className={css.mini_cart_header}>
           <h4>My Bag, 
-            <span className="regularWeight"> {itemCount} item{itemCount === 1 ? "" : "s"}</span>
+            <span className="regularFontWeight"> {itemCount} item{itemCount === 1 ? "" : "s"}</span>
           </h4>
         </div>
         
         <div className={css.mini_cart_items}>
-          {shoppingCart.products.map(item => {
+          {shoppingCart.map(item => {
             return (
               <CartItem type="mini" key={item.name} item={item} />
             )

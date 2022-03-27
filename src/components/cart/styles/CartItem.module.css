@@ -31,7 +31,8 @@
 }
 
 .chevron {
-  border: 1px solid red;
+  background-color: var(--accentColor);
+  padding: 0.2rem;
 }
 
 .chevron:hover {

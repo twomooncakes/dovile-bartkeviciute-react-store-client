@@ -33,6 +33,10 @@
   align-items: center;
 }
 
+.attribute_option:hover {
+  opacity: 0.5;
+}
+
 .swatch {
   height: 50px;
   width: 50px;
