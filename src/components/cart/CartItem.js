@@ -20,7 +20,7 @@ class CartItem extends Component {
   render() { 
     const { currentCurrency } = this.context;
     const { currentImageID } = this.state;
-    const { id, name, brand, gallery } = this.props.item;
+    const { id, name, prices, brand, gallery, quantity } = this.props.item;
     return (
       <div className={css.cart_item_container}>
         <section className={css.item_info}>
@@ -28,14 +28,13 @@ class CartItem extends Component {
           <Link to={`/product/${id}`}>
             <h2>{name}</h2>
           </Link>
-          <h3>$50.00</h3>
-          {/* <h3>{getPrice(prices, currentCurrency)}</h3> */}
+          <h3>{getPrice(prices, currentCurrency)}</h3>
         </section>
         <section className={css.item_controls}>
           <div className={css.quantity_controls}>
             
           </div>
-          <QuantityButtons />
+          <QuantityButtons amount={quantity} id={id}/>
           <div className={css.mini_gallery_container}>
             <img className={css.product_image} src={gallery[currentImageID]} />
             <div className={css.mini_gallery_overlay}>

@@ -21,11 +21,14 @@ class MiniCart extends Component {
         </div>
         
         <div className={css.mini_cart_items}>
-          {shoppingCart.map(item => {
+          {shoppingCart.length !== 0 ? 
+          shoppingCart.map(item => {
             return (
               <CartItem type="mini" key={item.name} item={item} />
             )
-          })}
+          })
+          // unfinished styling
+          : <p>no cart items yet.</p>}
         </div>
 
         <div className={css.mini_cart_footer}>

@@ -7,26 +7,7 @@ export class ShopProvider extends Component {
     currentCat: localStorage.getItem("currentCategory") || "all",
     currentCurrency: JSON.parse(localStorage.getItem("currentCurrency")) || { label: "USD", symbol: "$" },
     currentProductID: localStorage.getItem("currentProductID"),
-    shoppingCart: [ 
-      {
-        brand: "Microsoft", 
-        name: "Xbox Series S", 
-        gallery: [
-          "https://images-na.ssl-images-amazon.com/images/I/61RnXmpAmIL._SL1500_.jpg",
-          "https://images-na.ssl-images-amazon.com/images/I/71vPCX0bS-L._SL1500_.jpg"
-        ], 
-        attributes: [
-          { 
-            id: "Color", name: "Color", type: "swatch",
-            items: { displayValue: "Green", value: "#44FF03", id: "Green" }
-          },
-          { 
-            id: "Capacity", name: "Capacity", type: "text",
-            items: { displayValue: "1T", value: "1T", id: "1T" }
-          }
-        ],
-      }
-    ]
+    shoppingCart: []
   }
 
   changeCurrentCat = (newCat) => {
@@ -46,8 +27,25 @@ export class ShopProvider extends Component {
     localStorage.setItem("currentProductID", newProductID);
   }
 
-  removeProductFromCart = (productID) => {
-    console.log("removing product");
+  changeCartProductQuantity = (action, productID) => {
+    console.log("product quantity");
+
+
+    if(action === "increase") {
+      this.setState({ shoppingCart: this.state.shoppingCart.map(product => product.id === productID ? { ...product, quantity: product.quantity + 1} : product) })
+    }
+    if(action === "decrease") {
+      this.state.shoppingCart.map(product => {
+        if(product.id === productID && product.quantity === 1) {
+          console.log("it is one");
+          this.setState({
+            shoppingCart: this.state.shoppingCart.filter(item => item.id !== productID)
+          });
+        } else {
+          this.setState({ shoppingCart: this.state.shoppingCart.map(product => product.id === productID ? { ...product, quantity: product.quantity - 1} : product) })
+        }
+      })
+    }
   }
 
   addToCart = (product) => {
@@ -58,7 +56,7 @@ export class ShopProvider extends Component {
   render() {
     const { children } = this.props;
     const { currentCat, currentCurrency, currentProductID, shoppingCart } = this.state;
-    const { changeCurrentCat, changeCurrentCurrency, changeCurrentProductID, addToCart } = this;
+    const { changeCurrentCat, changeCurrentCurrency, changeCurrentProductID, changeCartProductQuantity, addToCart } = this;
     return (
       <ShopContext.Provider
         value={{
@@ -69,6 +67,7 @@ export class ShopProvider extends Component {
           changeCurrentCat,
           changeCurrentCurrency,
           changeCurrentProductID,
+          changeCartProductQuantity,
           addToCart
         }}
       >

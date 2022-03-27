@@ -15,33 +15,3 @@
 .attribute_name {
   margin-bottom: 0.5rem;
 }
-
-.attribute_options {
-  display: flex;
-  margin-bottom: 1.25rem;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-}
-
-.attribute_option {
-  border: 1px solid var(--darkColor);
-  padding: 0.8rem 1.2rem;
-  height: 45px;
-  width: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.attribute_option:hover {
-  opacity: 0.5;
-}
-
-.swatch {
-  height: 50px;
-  width: 50px;
-}
-
-.attribute_option:hover {
-  cursor: pointer;
-}

@@ -10,11 +10,15 @@ class CartList extends Component {
     const { shoppingCart } = this.context;
     return (
       <div className={css.cart_list}>
-        {shoppingCart.map(item => {
+        {shoppingCart.length !== 0 ? 
+
+        shoppingCart.map(item => {
           return (
             <CartItem key={item.name} item={item} />
           )
-        })}
+        })
+
+        : <p>no cart items yet.</p>}
       </div>
     );
   }
