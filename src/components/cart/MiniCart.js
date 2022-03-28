@@ -22,9 +22,9 @@ class MiniCart extends Component {
         
         <div className={css.mini_cart_items}>
           {shoppingCart.length !== 0 ? 
-          shoppingCart.map(item => {
+          shoppingCart.map((item,idx) => {
             return (
-              <CartItem type="mini" key={item.name} item={item} />
+              <CartItem type="mini" key={`${item.name}-${idx}`} index={idx} item={item} />
             )
           })
           // unfinished styling

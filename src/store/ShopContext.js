@@ -30,22 +30,18 @@ export class ShopProvider extends Component {
   changeCartProductQuantity = (action, productID) => {
     console.log("product quantity");
 
-
     if(action === "increase") {
       this.setState({ shoppingCart: this.state.shoppingCart.map(product => product.id === productID ? { ...product, quantity: product.quantity + 1} : product) })
     }
     if(action === "decrease") {
-      this.state.shoppingCart.map(product => {
-        if(product.id === productID && product.quantity === 1) {
-          console.log("it is one");
-          this.setState({
-            shoppingCart: this.state.shoppingCart.filter(item => item.id !== productID)
-          });
-        } else {
-          this.setState({ shoppingCart: this.state.shoppingCart.map(product => product.id === productID ? { ...product, quantity: product.quantity - 1} : product) })
-        }
-      })
+      this.setState({ shoppingCart: this.state.shoppingCart.map(product => product.id === productID ? { ...product, quantity: product.quantity - 1} : product) })
     }
+  }
+
+  removeCartItem = (productID) => {
+    this.setState({
+      shoppingCart: this.state.shoppingCart.filter(item => item.id !== productID)
+    })
   }
 
   addToCart = (product) => {
@@ -56,7 +52,7 @@ export class ShopProvider extends Component {
   render() {
     const { children } = this.props;
     const { currentCat, currentCurrency, currentProductID, shoppingCart } = this.state;
-    const { changeCurrentCat, changeCurrentCurrency, changeCurrentProductID, changeCartProductQuantity, addToCart } = this;
+    const { changeCurrentCat, changeCurrentCurrency, changeCurrentProductID, changeCartProductQuantity, removeCartItem, addToCart } = this;
     return (
       <ShopContext.Provider
         value={{
@@ -68,6 +64,7 @@ export class ShopProvider extends Component {
           changeCurrentCurrency,
           changeCurrentProductID,
           changeCartProductQuantity,
+          removeCartItem,
           addToCart
         }}
       >

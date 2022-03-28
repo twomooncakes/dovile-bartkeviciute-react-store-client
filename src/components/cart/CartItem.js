@@ -11,7 +11,7 @@ import AttributeDisplay from "./AttributeDisplay";
 
 class CartItem extends Component {
   static contextType = ShopContext;
-  state = { currentImageID: 0, quantity: 0 } 
+  state = { currentImageID: 0, quantity: this.props.item.quantity } 
 
   changeCurrentImageID(galleryArr, step) {
     this.setState({ currentImageID: mod(this.state.currentImageID + step, galleryArr.length) });
@@ -19,8 +19,8 @@ class CartItem extends Component {
 
   render() { 
     const { currentCurrency } = this.context;
-    const { currentImageID } = this.state;
-    const { id, name, prices, brand, attributes, gallery, quantity } = this.props.item;
+    const { currentImageID, quantity } = this.state;
+    const { id, name, prices, brand, attributes, gallery } = this.props.item;
     const isStandard = this.props.type === "standard";
     return (
       <div className={`${css.cart_item_container} ${isStandard ? "" : css.cart_item_mini}`}>
@@ -39,7 +39,7 @@ class CartItem extends Component {
         </section>
 
         <section className={css.item_controls}>
-          <QuantityButtons isStandard={isStandard} amount={quantity} id={id}/>
+          <QuantityButtons index={this.props.index} isStandard={isStandard} amount={quantity} id={id}/>
 
           <div className={isStandard ? css.gallery_container : css.gallery_container_mini}>
             <img className={isStandard ? css.product_image : css.product_image_mini} src={gallery[currentImageID]} />

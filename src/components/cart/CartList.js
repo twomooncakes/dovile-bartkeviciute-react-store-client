@@ -12,9 +12,9 @@ class CartList extends Component {
       <div className={css.cart_list}>
         {shoppingCart.length !== 0 ? 
 
-        shoppingCart.map(item => {
+        shoppingCart.map((item, idx) => {
           return (
-            <CartItem type="standard" key={item.name} item={item} />
+            <CartItem type="standard" key={`${item.name}-${idx}`} index={idx} item={item} />
           )
         })
         // unfinished styling

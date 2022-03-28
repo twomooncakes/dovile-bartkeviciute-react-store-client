@@ -4,12 +4,18 @@ import css from "./styles/QuantityButtons.module.css";
 
 class QuantityButtons extends Component {
   static contextType = ShopContext;
-  state = { amount: this.props.amount, id: this.props.id } 
+  state = { amount: this.props.amount, id: this.props.id, index: this.props.index } 
 
   handleAmountChange = async(action, productID) => {
     await this.context.changeCartProductQuantity(action, productID);
     if(action === "increase") this.setState({ amount: this.state.amount + 1 })
     if(action === "decrease") this.setState({ amount: this.state.amount - 1 })
+  }
+
+  componentDidUpdate() {
+    if(this.context.shoppingCart[this.state.index].quantity !== this.state.amount) {
+      this.setState({ amount: this.context.shoppingCart[this.state.index].quantity })
+    }
   }
 
   render() { 
@@ -32,7 +38,7 @@ class QuantityButtons extends Component {
             ${css.quantity_btn} 
             ${isStandard ? "" : css.quantity_btn_mini}
           `} 
-          onClick={() => this.handleAmountChange("decrease", id)}
+          onClick={amount === 1 ? () => this.context.removeCartItem(id) : () => this.handleAmountChange("decrease", id)}
         >-</button>
       </div>
     );
