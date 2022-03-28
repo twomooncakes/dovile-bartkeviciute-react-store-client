@@ -7,7 +7,7 @@
 .nav_currency p {
   display: inline;
   padding-right: 0.5rem;
-  font-size: var(--mediumFontSize);
+  font-size: var(--smallFontSize);
 }
 
 .currency_overlay_wrapper {

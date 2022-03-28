@@ -16,9 +16,10 @@
   --lightWeight: 300;
 
   /* Font Size */
-  --smallFontSize: 16px;
-  --mediumFontSize: 18px;
-  --largeFontSize: 24px;
+  --tinyFontSize: 16px;
+  --smallFontSize: 18px;
+  --mediumFontSize: 24px;
+  --largeFontSize: 30px;
   --hugeFontSize: 32px;
 
   /* Misc */

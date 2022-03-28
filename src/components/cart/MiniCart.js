@@ -10,7 +10,7 @@ class MiniCart extends Component {
   state = {  } 
   render() { 
     const { shoppingCart, currentCurrency } = this.context;
-    let itemCount = 0;
+    let itemCount = shoppingCart.length;
     let totalPrice = 0;
     return (
       <div className={css.mini_cart_overlay}>

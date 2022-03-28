@@ -1,8 +1,15 @@
 .attribute_options {
   display: flex;
-  margin-bottom: 1.25rem;
   gap: 0.8rem;
   flex-wrap: wrap;
+}
+
+.attribute_options:nth-of-type(even), .mini_options:nth-of-type(even) {
+  margin: 1.25rem 0;
+}
+
+.attribute_options:last-of-type, .mini_options:last-of-type {
+  margin-bottom: 0;
 }
 
 .attribute_option {
@@ -22,6 +29,22 @@
 .swatch {
   height: 50px;
   width: 50px;
+}
+
+.mini_options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem
+}
+
+.mini_option {
+  height: 24px;
+  width: 50px;
+  padding: 0;
+}
+
+.mini_option p {
+  font-size: 14px;
 }
 
 .attribute_option:hover {

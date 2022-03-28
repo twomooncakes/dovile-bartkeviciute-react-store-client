@@ -4,16 +4,19 @@
   justify-content: space-between;
   align-items: center;
   gap: 0.8rem;
+  height: 100%;
+  margin: 0 0.4rem;
 }
 
 .quantity_btn {
+  padding: 0;
   background-color: var(--lightColor);
   font-family: var(--mainFont);
   font-size: var(--hugeFontSize);
   font-weight: var(--lightWeight);
   border: 1px solid var(--darkColor);
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
 }
 
 .quantity_btn:hover {
@@ -21,6 +24,19 @@
   opacity: 0.5;
 }
 
+.quantity_btn_mini {
+  height: 24px;
+  width: 24px;
+  font-size: var(--mediumFontSize);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .amount {
   font-size: var(--largeFontSize);
+}
+
+.amount_mini {
+  font-size: var(--tinyFontSize);
 }

@@ -9,18 +9,22 @@ class AttributeOptions extends Component {
   }
   
   render() {
-    const { isSwatch, attr } = this.props; 
+    const { isSwatch, attr, displayOnly, isMini } = this.props; 
     return (
-      <div className={css.attribute_options}>
+      <div className={isMini ? css.mini_options : css.attribute_options}>
         {attr.items.map(item => {
           let bgColor = {};
           if(isSwatch) bgColor.backgroundColor = `${item.value}`;
           return (
             <div 
-              className={`${css.attribute_option} ${isSwatch ? css.swatch : "" }`} 
+              className={`
+                ${css.attribute_option} 
+                ${isSwatch ? css.swatch : "" }
+                ${isMini ? css.mini_option : ""}
+              `} 
               style={bgColor}
               key={item.id}
-              onClick={() => this.selectAttr(attr.name, item.value)}
+              onClick={displayOnly ? () => {} : () => this.selectAttr(attr.name, item.value)}
               >
               <p>{!isSwatch && item.value}</p>
             </div>

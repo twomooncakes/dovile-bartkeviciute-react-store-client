@@ -14,10 +14,10 @@ class CartList extends Component {
 
         shoppingCart.map(item => {
           return (
-            <CartItem key={item.name} item={item} />
+            <CartItem type="standard" key={item.name} item={item} />
           )
         })
-
+        // unfinished styling
         : <p>no cart items yet.</p>}
       </div>
     );

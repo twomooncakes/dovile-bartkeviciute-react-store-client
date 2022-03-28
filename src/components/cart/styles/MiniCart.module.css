@@ -7,6 +7,7 @@
   margin: 1.8rem 0 0 -18rem;
   padding: 1.25rem;
   z-index: 5;
+  min-width: 400px;
 }
 
 .mini_cart_header {
@@ -28,5 +29,9 @@
 .mini_cart_btns {
   display: flex;
   gap: 0.8rem;
+}
+
+.mini_cart_btns a, .mini_cart_btns button:last-of-type {
+  flex: 1;
 }
 

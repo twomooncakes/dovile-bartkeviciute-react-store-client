@@ -21,3 +21,7 @@ export function getPrice(pricesArr, currentCurrency) {
     })
   )
 }
+
+export function mod(n, m) {
+  return ((n % m) + m) % m;
+}
