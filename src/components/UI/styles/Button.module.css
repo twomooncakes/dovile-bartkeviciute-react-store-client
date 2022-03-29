@@ -7,3 +7,14 @@
   text-transform: uppercase;
   font-weight: var(--boldWeight);
 }
+
+.accent_btn {
+  background-color: var(--accentColor);
+  color: var(--lightColor);
+}
+
+.outline_btn {
+  background-color: var(--lightColor);
+  color: var(--darkColor);
+  border: 1px solid var(--darkColor);
+}

@@ -15,7 +15,7 @@ class Card extends Component {
   }
 
   render() { 
-    const { name, id, prices, gallery, inStock } = this.props.product;
+    const { brand, name, id, prices, gallery, inStock } = this.props.product;
     const { currentCurrency } = this.context;
     return (
       <div className={`${css.product_card} ${inStock ? "" : css.not_in_stock}`}>
@@ -34,7 +34,7 @@ class Card extends Component {
         </div> 
         
         <div className={css.product_info}>
-          <h3>{name}</h3>
+          <h3>{`${brand} ${name}`}</h3>
           <h3 className={css.product_price}>
             {getPrice(prices, currentCurrency)}
           </h3>

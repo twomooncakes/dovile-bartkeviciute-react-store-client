@@ -42,19 +42,25 @@ class CartItem extends Component {
           <QuantityButtons index={this.props.index} isStandard={isStandard} amount={quantity} id={id}/>
 
           <div className={isStandard ? css.gallery_container : css.gallery_container_mini}>
-            <img className={isStandard ? css.product_image : css.product_image_mini} src={gallery[currentImageID]} />
-            <div className={css.gallery_overlay}>
+            <img 
+              className={isStandard ? css.product_image : css.product_image_mini} 
+              src={gallery[currentImageID]} 
+              alt={name}
+            />
+            {gallery.length > 1 && <div className={css.gallery_overlay}>
               <img 
                 className={css.chevron} 
                 src={ChevronLight}
+                alt="chevron left for gallery"
                 onClick={() => this.changeCurrentImageID(gallery, -1)} 
               />
               <img 
                 className={`flip-y ${css.chevron}`} 
                 src={ChevronLight} 
+                alt="chevron right for gallery"
                 onClick={() => this.changeCurrentImageID(gallery, 1)}
               />
-            </div>
+            </div>}
           </div>
         </section>
       </div>

@@ -14,9 +14,10 @@ class NavCart extends Component {
     const { miniCartDisplay } = this.state;
     return (
       <div className={css.nav_cart}>
+        <span className={css.quantity_bubble}>1</span>
         <img 
           src={Cart} 
-          alt="shopping overlay button"
+          alt="shopping cart overlay button"
           onClick={this.toggleMiniCartDisplay} 
         />
         {miniCartDisplay && <MiniCart />}

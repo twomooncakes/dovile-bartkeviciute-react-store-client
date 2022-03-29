@@ -24,7 +24,7 @@
 
 .stock_text {
   color: #8D8F9A;
-  font-size: 1.5rem;
+  font-size: var(--mediumFontSize);
   text-transform: uppercase;
   position: absolute;
 }
@@ -52,6 +52,10 @@
 
 .product_info {
   padding: 1.5rem 0;
+}
+
+.product_info > * {
+  font-size: var(--smallFontSize);
 }
 
 .product_price {

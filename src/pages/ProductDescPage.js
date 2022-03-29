@@ -46,6 +46,7 @@ class ProductDescPage extends Component {
   async componentDidMount() {
     const productData = await queryFetch(productByIDQuery(this.context.currentProductID));
     this.setState({ product: productData.data.product })
+    this.context.changeCurrentCat(this.state.product.category);
   }
 
   componentWillUnmount() {

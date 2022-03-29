@@ -27,8 +27,7 @@ class MiniCart extends Component {
               <CartItem type="mini" key={`${item.name}-${idx}`} index={idx} item={item} />
             )
           })
-          // unfinished styling
-          : <p>no cart items yet.</p>}
+          : <p className="message">Your cart is empty.</p>}
         </div>
 
         <div className={css.mini_cart_footer}>
@@ -37,9 +36,9 @@ class MiniCart extends Component {
         </div>
         <div className={css.mini_cart_btns}>
           <Link to={"/cart"}>
-            <Button>View Bag</Button>
+            <Button type="outline">View Bag</Button>
           </Link>
-          <Button>Check Out</Button>
+          <Button type="primary">Check Out</Button>
         </div>
       </div>
     );

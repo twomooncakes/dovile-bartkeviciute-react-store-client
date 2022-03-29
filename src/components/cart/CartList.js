@@ -17,8 +17,7 @@ class CartList extends Component {
             <CartItem type="standard" key={`${item.name}-${idx}`} index={idx} item={item} />
           )
         })
-        // unfinished styling
-        : <p>no cart items yet.</p>}
+        : <p className="message">Your cart is empty.</p>}
       </div>
     );
   }

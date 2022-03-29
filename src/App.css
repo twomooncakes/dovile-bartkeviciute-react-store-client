@@ -81,6 +81,14 @@ ul {
   list-style-type: none;
 }
 
+img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
 .flip-x {
   transform: rotateX(180deg);
 }
@@ -133,4 +141,8 @@ main {
   font-size: var(--hugeFontSize);
   text-transform: uppercase;
   margin: 2rem 0;
+}
+
+.message {
+  margin-bottom: 1.25rem;
 }

@@ -14,10 +14,6 @@ class AttributeOptions extends Component {
       <div className={isMini ? css.mini_options : css.attribute_options}>
         {attr.items.map(item => {
           let bgColor = {};
-          console.log("********");
-          console.log(selectedOption);
-          console.log(item.value);
-          console.log(selectedOption === item.value);
           if(isSwatch) bgColor.backgroundColor = `${item.value}`;
           return (
             <div 

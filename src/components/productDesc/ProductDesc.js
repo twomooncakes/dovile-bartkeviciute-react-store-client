@@ -36,8 +36,6 @@ class ProductDesc extends Component {
   }
 
   handleAddToCart = () => {
-    console.log('sdfsf');
-
     let product = this.state.product;
     let productToAdd = {
       id: product.id,
@@ -75,8 +73,7 @@ class ProductDesc extends Component {
 
         <div className={css.cart_btn_wrapper}>
           <Button 
-            bg={"accentColorBG"} 
-            txtColor={"lightColorTxt"}
+            type="primary"
             clickFunc={() => this.handleAddToCart()}
           >add to cart</Button>
         </div>
