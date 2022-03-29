@@ -12,6 +12,10 @@
   margin-bottom: 2rem;
 }
 
+.attribute:last-child {
+  margin-bottom: 1.25rem;
+}
+
 .attribute_name {
   margin-bottom: 0.5rem;
 }

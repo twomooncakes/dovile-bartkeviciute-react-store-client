@@ -4,11 +4,15 @@
   flex-wrap: wrap;
 }
 
-.attribute_options:nth-of-type(even), .mini_options:nth-of-type(even) {
+.mini_options:nth-of-type(even) {
   margin: 1.25rem 0;
 }
 
-.attribute_options:last-of-type, .mini_options:last-of-type {
+.attribute_options {
+  margin-bottom: 1.25rem;
+}
+
+.mini_options:last-of-type {
   margin-bottom: 0;
 }
 
@@ -24,11 +28,6 @@
 
 .attribute_option:hover {
   opacity: 0.5;
-}
-
-.swatch {
-  height: 50px;
-  width: 50px;
 }
 
 .mini_options {
@@ -49,4 +48,22 @@
 
 .attribute_option:hover {
   cursor: pointer;
+}
+
+.swatch {
+  height: 50px;
+  width: 50px;
+}
+.swatch_mini {
+  height: 24px;
+  width: 24px;
+}
+
+/* Selected Attribute Styles */
+.swatch_selected {
+  border: 3px solid var(--accentColor);
+}
+.option_selected {
+  background-color: var(--darkColor);
+  color: var(--lightColor);
 }

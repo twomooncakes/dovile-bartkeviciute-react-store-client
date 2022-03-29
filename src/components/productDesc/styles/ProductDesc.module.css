@@ -22,13 +22,17 @@
   margin-bottom: 2rem;
 }
 
+.product_title > * {
+  font-size: var(--largeFontSize);
+}
+
 .brand {
   font-weight: var(--boldWeight);
   margin-bottom: 0.5rem;
 }
 
 .product_desc h4 {
-  font-size: var(--mediumFontSize);
+  font-size: var(--smallFontSize);
   text-transform: uppercase;
 }
 

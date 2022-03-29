@@ -20,7 +20,7 @@ class CartItem extends Component {
   render() { 
     const { currentCurrency } = this.context;
     const { currentImageID, quantity } = this.state;
-    const { id, name, prices, brand, attributes, gallery } = this.props.item;
+    const { id, name, prices, brand, attributes, gallery, selectedAttributes } = this.props.item;
     const isStandard = this.props.type === "standard";
     return (
       <div className={`${css.cart_item_container} ${isStandard ? "" : css.cart_item_mini}`}>
@@ -35,7 +35,7 @@ class CartItem extends Component {
 
           <h3 className={isStandard ? css.price : css.price_mini}>{getPrice(prices, currentCurrency)}</h3>
           
-          <AttributeDisplay attributes={attributes} type={this.props.type} />
+          <AttributeDisplay attributes={attributes} type={this.props.type} selectedAttributes={selectedAttributes} />
         </section>
 
         <section className={css.item_controls}>
