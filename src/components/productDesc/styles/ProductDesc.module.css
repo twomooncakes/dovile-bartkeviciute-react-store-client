@@ -1,12 +1,13 @@
 .product_desc {
   height: inherit;
+  min-width: 360px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 2.5rem;
-  min-width: 360px;
-  scrollbar-width: thin;
+  margin: 0 auto;
   padding-right: 0.5rem;
+  scrollbar-width: thin;
   overflow: hidden;
 }
 
@@ -31,6 +32,9 @@
 
 .product_desc h4 {
   font-size: var(--smallFontSize);
+  font-family: var(--condensedFont);
+  font-weight: var(--extraBoldWeight);
+  line-height: 18px;
   text-transform: uppercase;
 }
 
@@ -39,6 +43,7 @@
 }
 
 .description {
+  font-family: var(--secondaryFont);
   width: 100%;
   margin: 3rem 0;
   line-height: 26px;

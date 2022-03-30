@@ -64,6 +64,7 @@ class ProductDescPage extends Component {
         <>
           <Gallery id={id} gallery={gallery} name={name}/>
           <ProductDesc product={this.state.product} />
+          
         </>
         }
         

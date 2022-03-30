@@ -50,6 +50,7 @@
 .gallery_spotlight {
   min-width: 35vw;
   height: inherit;
+  margin-right: 2.5rem;
 }
 
 .gallery_spotlight img {

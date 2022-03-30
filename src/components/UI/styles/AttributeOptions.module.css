@@ -17,6 +17,7 @@
 }
 
 .attribute_option {
+  font-family: 'Source Sans Pro', sans-serif;
   border: 1px solid var(--darkColor);
   padding: 0.8rem 1.2rem;
   height: 45px;
@@ -24,6 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  letter-spacing: 0.05em;
 }
 
 .attribute_option:hover {

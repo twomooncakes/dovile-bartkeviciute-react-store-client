@@ -48,6 +48,11 @@
   position: relative;
   bottom: 1.85rem;
   padding-right: 1rem;
+
+  /* position: absolute;
+  bottom: -7%;
+  padding-right: 1rem;
+  left: 75%; */
 }
 
 .product_info {

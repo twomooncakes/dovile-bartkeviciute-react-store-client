@@ -12,7 +12,7 @@ class AttributeSelector extends Component {
           const isSwatch = attr.type === "swatch";
           return (
             <div className={css.attribute} key={attr.id}>
-              <div className={css.attribute_name}>
+              <div className={css.attribute_name_wrapper}>
                 <h4>{attr.name}:</h4>
               </div>
               <AttributeOptions 

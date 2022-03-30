@@ -7,6 +7,6 @@
 
 .amount {
   margin-top: 1.25rem;
-  font-size: var(--largeFontSize);
-  font-weight: var(--boldWeight);
+  font-size: var(--mediumFontSize);
+  font-weight: var(--extraBoldWeight);
 }

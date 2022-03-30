@@ -8,7 +8,6 @@ class AttributeDisplay extends Component {
   
   componentDidUpdate() {
     if(this.state.selectedAttributes !== this.context.shoppingCart[this.props.index].selectedAttributes) {
-      console.log('hello?');
       this.setState({ selectedAttributes: this.context.shoppingCart[this.props.index].selectedAttributes })
     }
   }
