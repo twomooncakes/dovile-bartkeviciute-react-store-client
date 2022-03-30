@@ -18,6 +18,15 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  scrollbar-width: thin;
+  max-height: 600px;
+  padding-right: 0.5rem;
+  overflow: hidden;
+}
+
+.mini_cart_items:hover {
+  padding-right: 0;
+  overflow-y: scroll;
 }
 
 .mini_cart_footer {

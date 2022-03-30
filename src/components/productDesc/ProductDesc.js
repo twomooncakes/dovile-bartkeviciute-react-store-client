@@ -35,10 +35,16 @@ class ProductDesc extends Component {
     })
   }
 
+  generateCartItemID = (baseID, selectedAttrArr) => {
+    let id = baseID;
+    selectedAttrArr.map(attr => id += `-${attr.value}`);
+    return id.toLowerCase();
+  }
+
   handleAddToCart = () => {
     let product = this.state.product;
     let productToAdd = {
-      id: product.id,
+      id: this.generateCartItemID(product.id, this.state.selectedAttributes),
       name: product.name,
       brand: product.brand,
       prices: product.prices,

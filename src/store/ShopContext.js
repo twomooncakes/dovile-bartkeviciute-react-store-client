@@ -47,7 +47,14 @@ export class ShopProvider extends Component {
 
   addToCart = (product) => {
     console.log("adding to cart");
-    this.setState({ shoppingCart: [...this.state.shoppingCart, product] });
+
+    if(this.state.shoppingCart.find(item => item.id === product.id)) {
+      this.setState({ shoppingCart: this.state.shoppingCart.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1} : item) })
+    } else {
+      this.setState({ shoppingCart: [...this.state.shoppingCart, product] });
+    }
+    
+    
   }
 
   componentDidUpdate() {

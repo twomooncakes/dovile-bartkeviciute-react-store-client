@@ -1,8 +1,17 @@
 import { Component } from "react";
+import ShopContext from "../../store/ShopContext";
 import AttributeOptions from "../UI/AttributeOptions";
 
 class AttributeDisplay extends Component {
-  state = { attributes: this.props.attributes, selectedAttributes: this.props.selectedAttributes } 
+  static contextType = ShopContext;
+  state = { attributes: this.props.attributes, selectedAttributes: this.props.selectedAttributes }
+  
+  componentDidUpdate() {
+    if(this.state.selectedAttributes !== this.context.shoppingCart[this.props.index].selectedAttributes) {
+      console.log('hello?');
+      this.setState({ selectedAttributes: this.context.shoppingCart[this.props.index].selectedAttributes })
+    }
+  }
   render() { 
     return (
       <div>

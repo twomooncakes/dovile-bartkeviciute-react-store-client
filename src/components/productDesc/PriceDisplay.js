@@ -4,18 +4,13 @@ import ShopContext from "../../store/ShopContext";
 import { getPrice } from "../../utils/helpers";
 
 class PriceDisplay extends Component {
-  constructor(props) {
-    super(props)
-  }
   static contextType = ShopContext;
-  state = {  } 
   render() { 
-    console.log(this.context.currentCurrency);
-    console.log(this.props);
+    const { currentCurrency } = this.context;
     return (
       <div className={css.price_display}>
         <h4>Price:</h4>
-        <h3 className={css.amount}>{getPrice(this.props.prices, this.context.currentCurrency)}</h3>
+        <h3 className={css.amount}>{currentCurrency.symbol}{getPrice(this.props.prices, currentCurrency)}</h3>
       </div>
     );
   }

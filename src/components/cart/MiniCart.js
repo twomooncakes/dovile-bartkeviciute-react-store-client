@@ -4,14 +4,13 @@ import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 import ShopContext from "../../store/ShopContext";
 import CartItem from "./CartItem";
+import { getTotalPrice, getTotalQuantity } from "../../utils/helpers";
 
 class MiniCart extends Component {
   static contextType = ShopContext;
-  state = {  } 
   render() { 
     const { shoppingCart, currentCurrency } = this.context;
-    let itemCount = shoppingCart.length;
-    let totalPrice = 0;
+    let itemCount = getTotalQuantity(shoppingCart);
     return (
       <div className={css.mini_cart_overlay}>
         <div className={css.mini_cart_header}>
@@ -32,7 +31,7 @@ class MiniCart extends Component {
 
         <div className={css.mini_cart_footer}>
           <h4>Total</h4>
-          <h4>{currentCurrency.symbol + totalPrice}</h4>
+          <h4>{`${currentCurrency.symbol}${getTotalPrice(shoppingCart, currentCurrency)}`}</h4>
         </div>
         <div className={css.mini_cart_btns}>
           <Link to={"/cart"}>

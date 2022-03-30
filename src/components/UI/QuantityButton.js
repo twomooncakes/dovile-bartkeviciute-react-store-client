@@ -14,7 +14,7 @@ class QuantityButtons extends Component {
 
   componentDidUpdate() {
     if(this.context.shoppingCart[this.state.index].quantity !== this.state.amount) {
-      this.setState({ amount: this.context.shoppingCart[this.state.index].quantity })
+      this.setState({ amount: this.context.shoppingCart[this.state.index].quantity, id: this.context.shoppingCart[this.state.index].id })
     }
   }
 

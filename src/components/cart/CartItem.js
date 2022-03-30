@@ -11,7 +11,7 @@ import AttributeDisplay from "./AttributeDisplay";
 
 class CartItem extends Component {
   static contextType = ShopContext;
-  state = { currentImageID: 0, quantity: this.props.item.quantity } 
+  state = { currentImageID: 0 } 
 
   changeCurrentImageID(galleryArr, step) {
     this.setState({ currentImageID: mod(this.state.currentImageID + step, galleryArr.length) });
@@ -19,8 +19,8 @@ class CartItem extends Component {
 
   render() { 
     const { currentCurrency } = this.context;
-    const { currentImageID, quantity } = this.state;
-    const { id, name, prices, brand, attributes, gallery, selectedAttributes } = this.props.item;
+    const { currentImageID } = this.state;
+    const { id, name, prices, brand, attributes, gallery, selectedAttributes, quantity } = this.props.item;
     const isStandard = this.props.type === "standard";
     return (
       <div className={`${css.cart_item_container} ${isStandard ? "" : css.cart_item_mini}`}>
@@ -33,9 +33,9 @@ class CartItem extends Component {
             </Link>
           </div>
 
-          <h3 className={isStandard ? css.price : css.price_mini}>{getPrice(prices, currentCurrency)}</h3>
+          <h3 className={isStandard ? css.price : css.price_mini}>{currentCurrency.symbol}{getPrice(prices, currentCurrency)}</h3>
           
-          <AttributeDisplay attributes={attributes} type={this.props.type} selectedAttributes={selectedAttributes} />
+          <AttributeDisplay index={this.props.index} attributes={attributes} type={this.props.type} selectedAttributes={selectedAttributes} />
         </section>
 
         <section className={css.item_controls}>

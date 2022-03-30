@@ -11,7 +11,7 @@ class Button extends Component {
           btn 
           ${css.button} 
           ${type === "primary" ? css.accent_btn : css.outline_btn} 
-          ${styling}
+          ${styling ? styling : ""}
         `} 
         onClick={clickFunc}
       >

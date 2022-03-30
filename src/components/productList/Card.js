@@ -36,7 +36,7 @@ class Card extends Component {
         <div className={css.product_info}>
           <h3>{`${brand} ${name}`}</h3>
           <h3 className={css.product_price}>
-            {getPrice(prices, currentCurrency)}
+            {currentCurrency.symbol}{getPrice(prices, currentCurrency)}
           </h3>
         </div>
       </div>
