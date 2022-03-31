@@ -9,11 +9,6 @@ import { getPrice } from "../../utils/helpers";
 class Card extends Component {
   static contextType = ShopContext;
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() { 
     const { brand, name, id, prices, gallery, inStock } = this.props.product;
     const { currentCurrency } = this.context;
@@ -23,22 +18,23 @@ class Card extends Component {
 
           {!inStock && <div className={css.stock_text_wrapper}><h3 className={css.stock_text}>out of stock</h3></div> }
 
-          <img className={css.main_image} src={gallery[0]} alt={name} />
-
+          <Link onClick={() => this.context.changeCurrentProductID(id)} to={`/product/${id}`}>
+            <img className={css.main_image} src={gallery[0]} alt={name} />
+          </Link>
           <div className={css.cart_btn_wrapper}>
-            <Link onClick={() => this.context.changeCurrentProductID(id)} to={`/product/${id}`}>
-              <RoundButton><img src={Cart} alt="cart symbol" /></RoundButton>
-            </Link>
+            <Link onClick={() => this.context.changeCurrentProductID(id)} to={`/product/${id}`}></Link>
+            <RoundButton><img src={Cart} alt="cart symbol" /></RoundButton>
           </div>
           
         </div> 
-        
-        <div className={css.product_info}>
-          <h3>{`${brand} ${name}`}</h3>
-          <h3 className={css.product_price}>
-            {currentCurrency.symbol}{getPrice(prices, currentCurrency)}
-          </h3>
-        </div>
+        <Link onClick={() => this.context.changeCurrentProductID(id)} to={`/product/${id}`}>
+          <div className={css.product_info}>
+            <h3>{`${brand} ${name}`}</h3>
+            <h3 className={css.product_price}>
+              {currentCurrency.symbol}{getPrice(prices, currentCurrency)}
+            </h3>
+          </div>
+        </Link>
       </div>
     );
   }

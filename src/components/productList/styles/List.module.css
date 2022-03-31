@@ -5,6 +5,12 @@
   gap: 2rem;
 }
 
+@media (max-width:1300px) {
+  .product_list {
+    gap: 1.5rem;
+  }
+}
+
 .product_image {
   height: 360px;
 }

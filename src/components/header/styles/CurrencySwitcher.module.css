@@ -4,6 +4,10 @@
   text-align: right;
 }
 
+.nav_currency img {
+  transition: var(--transitionValues);
+}
+
 .nav_currency p {
   display: inline;
   padding-right: 0.5rem;

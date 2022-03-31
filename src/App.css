@@ -27,6 +27,8 @@
 
   /* Misc */
   --boxShadowValues: 0px 4px 35px rgba(168, 172, 176, 0.19);
+  --transitionValues: ease-in-out .25s;
+  --hoverOpacity: 0.75;
 }
 
 * {
@@ -124,8 +126,15 @@ img {
 }
 
 /* Page Layout */
+
 main {
   margin: 0 10% 3rem;
+}
+
+@media (max-width:1300px) {
+  main {
+    margin: 0 5% 3rem;
+  }
 }
 
 /* --- Color Options --- */

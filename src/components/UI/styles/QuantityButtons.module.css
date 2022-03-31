@@ -21,7 +21,7 @@
 
 .quantity_btn:hover {
   cursor: pointer;
-  opacity: 0.5;
+  opacity: var(--hoverOpacity);
 }
 
 .quantity_btn_mini {

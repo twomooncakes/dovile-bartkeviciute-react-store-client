@@ -10,6 +10,12 @@
   min-width: 400px;
 }
 
+@media (max-width:1300px) {
+  .mini_cart_overlay {
+    margin-left: -20rem;
+  }
+}
+
 .mini_cart_header {
   margin-bottom: 1.25rem;
 }

@@ -6,6 +6,11 @@
   text-transform: uppercase;
   font-weight: var(--boldWeight);
   font-size: var(--tinyFontSize);
+  transition: var(--transitionValues);
+}
+
+.button:hover {
+  opacity: var(--hoverOpacity);
 }
 
 .accent_btn {

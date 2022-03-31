@@ -26,10 +26,12 @@
   justify-content: center;
   align-items: center;
   letter-spacing: 0.05em;
+  transition: var(--transitionValues);
 }
 
 .attribute_option:hover {
-  opacity: 0.5;
+  opacity: var(--hoverOpacity);
+  cursor: pointer;
 }
 
 .mini_options {
@@ -46,10 +48,6 @@
 
 .mini_option p {
   font-size: 14px;
-}
-
-.attribute_option:hover {
-  cursor: pointer;
 }
 
 .swatch {

@@ -7,6 +7,12 @@ header {
   padding: 0 10%;
 }
 
+@media (max-width:1300px) {
+  header {
+    padding: 0 5%;
+  }
+}
+
 .nav_panel {
   display: flex;
 }
