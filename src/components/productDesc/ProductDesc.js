@@ -54,6 +54,7 @@ class ProductDesc extends Component {
       quantity: 1,
     }
 
+    // check if all attributes have selected values
     if(this.state.selectedAttributes.every((item) => item.value !== null)) {
       console.log("will add this");
       console.log(productToAdd);
@@ -61,6 +62,7 @@ class ProductDesc extends Component {
       return;
     }
     
+    this.context.showNotification("warning", "Please select product attributes first");
     console.log("please select attributes first");
   }
 

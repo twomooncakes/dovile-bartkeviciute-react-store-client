@@ -40,6 +40,10 @@
   gap: 0.8rem;
 }
 
+.mini_cart_btns button {
+  font-size: 14px;
+}
+
 .mini_cart_btns a, .mini_cart_btns button:last-of-type {
   flex: 1;
 }

@@ -17,7 +17,6 @@ class Header extends Component {
         <Link onClick={() => this.context.changeCurrentCat("all")} to="/">
           <img src={Logo} alt="green shopping bag logo"/>
         </Link>
-
         <div className={css.nav_panel}>
           <CurrencySwitch />
           <NavCart />

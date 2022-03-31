@@ -34,7 +34,7 @@ class MiniCart extends Component {
           <h4>{`${currentCurrency.symbol}${getTotalPrice(shoppingCart, currentCurrency)}`}</h4>
         </div>
         <div className={css.mini_cart_btns}>
-          <Link to={"/cart"}>
+          <Link to={"/cart"} onClick={() => this.props.toggleMiniCartDisplay()}>
             <Button type="outline">View Bag</Button>
           </Link>
           <Button type="primary">Check Out</Button>

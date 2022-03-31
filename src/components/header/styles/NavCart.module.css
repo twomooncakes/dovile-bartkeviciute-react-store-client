@@ -8,9 +8,11 @@
   background-color: var(--darkColor);
   color: var(--lightColor);
   border-radius: 60px;
-  padding: 1.6px 6.4px;
+  padding: 1.6px 6.2px;
+  font-family: var(--secondaryFont);
   font-size: 14px;
-  font-weight: var(--boldWeight);
+  font-weight: var(--extraBoldWeight);
+  line-height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;

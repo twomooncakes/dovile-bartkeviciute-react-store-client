@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/header/Header';
+import Notification from './components/UI/Notification';
 /* Pages */
 import CartPage from './pages/CartPage';
 import ProductDescPage from './pages/ProductDescPage';
@@ -11,9 +12,16 @@ import ShopContext from './store/ShopContext';
 
 class App extends Component {
   render() {
+    const { type, message, displayNotification } = this.context.notification;
     return (
       <div className="App">
         <Header />
+
+        {
+          // notification
+          <Notification display={displayNotification} type={type} message={message} />
+        }
+
         <Switch>
           <Route path="/product/:id">
             <ProductDescPage />

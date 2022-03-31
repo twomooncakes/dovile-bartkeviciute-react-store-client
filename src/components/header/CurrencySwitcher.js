@@ -31,6 +31,10 @@ class CurrencySwitch extends Component {
     const { currentCurrency } = this.context;
     return (
       <div className={css.nav_currency} onClick={this.toggleChevron}>
+        <div 
+          className={chevronToggled ? "app-overlay invisible" : ""}
+          onClick={this.toggleChevron}
+        ></div>
         <p>{currentCurrency.symbol}</p>
         <img 
           className={chevronToggled ? "flip-x" : ""} 

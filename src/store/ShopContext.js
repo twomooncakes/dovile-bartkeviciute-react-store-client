@@ -6,8 +6,11 @@ export class ShopProvider extends Component {
   state = {
     currentCat: localStorage.getItem("currentCategory") || "all",
     currentCurrency: JSON.parse(localStorage.getItem("currentCurrency")) || { label: "USD", symbol: "$" },
+
     currentProductID: localStorage.getItem("currentProductID"),
-    shoppingCart: JSON.parse(localStorage.getItem("shoppingCart")) || []
+    shoppingCart: JSON.parse(localStorage.getItem("shoppingCart")) || [],
+
+    notification: { displayNotification: false }
   }
 
   changeCurrentCat = (newCat) => {
@@ -47,14 +50,11 @@ export class ShopProvider extends Component {
 
   addToCart = (product) => {
     console.log("adding to cart");
-
     if(this.state.shoppingCart.find(item => item.id === product.id)) {
       this.setState({ shoppingCart: this.state.shoppingCart.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1} : item) })
     } else {
       this.setState({ shoppingCart: [...this.state.shoppingCart, product] });
     }
-    
-    
   }
 
   componentDidUpdate() {
@@ -68,10 +68,24 @@ export class ShopProvider extends Component {
     localStorage.setItem("shoppingCart", JSON.stringify(this.state.shoppingCart));
   }
 
+  showNotification = (type, message) => {
+    this.setState({
+      notification: {
+        type: type,
+        message: message,
+        displayNotification: true,
+      } 
+    });
+    
+    setTimeout(() => {
+      this.setState({ notification: {...this.state.notification, displayNotification: false } })
+    }, 2000);
+  }
+
   render() {
     const { children } = this.props;
-    const { currentCat, currentCurrency, currentProductID, shoppingCart } = this.state;
-    const { changeCurrentCat, changeCurrentCurrency, changeCurrentProductID, changeCartProductQuantity, removeCartItem, addToCart } = this;
+    const { currentCat, currentCurrency, currentProductID, shoppingCart, notification } = this.state;
+    const { changeCurrentCat, changeCurrentCurrency, changeCurrentProductID, changeCartProductQuantity, removeCartItem, addToCart, showNotification } = this;
     return (
       <ShopContext.Provider
         value={{
@@ -79,12 +93,14 @@ export class ShopProvider extends Component {
           currentCurrency,
           currentProductID,
           shoppingCart,
+          notification,
           changeCurrentCat,
           changeCurrentCurrency,
           changeCurrentProductID,
           changeCartProductQuantity,
           removeCartItem,
-          addToCart
+          addToCart,
+          showNotification,
         }}
       >
         {children}
