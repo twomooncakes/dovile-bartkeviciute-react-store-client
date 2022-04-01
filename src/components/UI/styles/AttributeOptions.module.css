@@ -70,11 +70,6 @@
 }
 
 /* Overlay style used in PLP */
-
-.overlay_style {
-
-}
-
 .mini_options.overlay_style:nth-of-type(2n) {
   margin-top: 0;
   margin-bottom: 1.25rem;

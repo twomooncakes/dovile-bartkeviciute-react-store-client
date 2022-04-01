@@ -26,6 +26,10 @@ class CurrencySwitch extends Component {
     this.setState({ chevronToggled: !this.state.chevronToggled });
   }
 
+  componentWillUnmount() {
+    this.setState({ chevronToggled: false, currencies: [] });
+  }
+
   render() { 
     const { chevronToggled, currencies } = this.state;
     const { currentCurrency } = this.context;
@@ -40,10 +44,9 @@ class CurrencySwitch extends Component {
           className={chevronToggled ? "flip-x" : ""} 
           src={Chevron} 
           alt="vertical chevron for currency switcher"
-
         />
-        {chevronToggled &&
 
+        {chevronToggled &&
         <ul className={css.currency_overlay_wrapper} onMouseLeave={this.toggleChevron}>
           {currencies.map(currency => {
             return (
@@ -58,9 +61,7 @@ class CurrencySwitch extends Component {
               </li>
             )
           })}
-        </ul>
-
-        }
+        </ul>}
       </div>
     );
   }

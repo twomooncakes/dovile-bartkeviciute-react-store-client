@@ -29,7 +29,6 @@
 }
 
 /* Overlay styles in PLP */
-
 .attribute_selector_overlay {
   background-color: rgba(166,166, 166, 0.3);
   position: absolute;
@@ -38,7 +37,6 @@
   bottom: 0;
   padding: 1rem;
 }
-
 .attribute_selector_overlay > * {
   margin: 0;
 }

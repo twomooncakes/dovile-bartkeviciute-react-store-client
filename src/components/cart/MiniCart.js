@@ -8,9 +8,11 @@ import { getTotalPrice, getTotalQuantity } from "../../utils/helpers";
 
 class MiniCart extends Component {
   static contextType = ShopContext;
+
   render() { 
     const { shoppingCart, currentCurrency } = this.context;
     let itemCount = getTotalQuantity(shoppingCart);
+    
     return (
       <div className={css.mini_cart_overlay}>
         <div className={css.mini_cart_header}>

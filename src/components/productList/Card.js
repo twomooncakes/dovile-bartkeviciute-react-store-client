@@ -25,6 +25,7 @@ class Card extends Component {
   toggleAddToCartView = (bool) => {
     this.setState({ addToCartView: bool});
     if(bool === false) {
+      // when AddToCartView disappears, remove SelectAttributeView and reset SelectedAttributes
       this.toggleSelectAttributeView(false);
       this.resetSelectedAttributes();
     }
@@ -51,8 +52,6 @@ class Card extends Component {
 
     // check if all attributes have selected values
     if(this.state.selectedAttributes.every((item) => item.value !== null)) {
-      console.log("will add this");
-      console.log(productToAdd);
       this.context.addToCart(productToAdd);
       return;
     }
@@ -71,9 +70,6 @@ class Card extends Component {
         onMouseOver={() => this.toggleAddToCartView(true)} 
         onMouseLeave={() => this.toggleAddToCartView(false)}
       >
-        
-        {!inStock && <div className={css.not_in_stock}></div>}
-
         <div className={css.product_image}>
           {!inStock && 
           <div className={css.stock_text_wrapper}>
@@ -99,7 +95,12 @@ class Card extends Component {
         </div>
 
         <Link onClick={() => this.context.changeCurrentProductID(id)} to={`/product/${id}`}>
-          <div className={css.product_info}>
+          <div 
+            className={`
+              ${css.product_info} 
+              ${!inStock ? css.product_info_notInStock : ""}
+            `}
+          >
             <h3>{`${brand} ${name}`}</h3>
             <h3 className={css.product_price}>
               {currentCurrency.symbol}{getPrice(prices, currentCurrency)}
@@ -108,9 +109,8 @@ class Card extends Component {
         </Link>
 
       </div>
-
     );
   }
 }
- 
+
 export default Card;

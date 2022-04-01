@@ -67,7 +67,6 @@ class List extends Component {
   }
 
   render() {
-
     return (
       <section className={css.product_list}>
         {this.state.products.map(item => <Card key={item.id} product={item} />)}

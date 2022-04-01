@@ -8,22 +8,12 @@ export async function queryFetch(dataQuery) {
       body: JSON.stringify({ query: dataQuery })
     });
   const data = await response.json();
-  console.log("query data:");
-  console.log(data.data);
+  // console.log("query data:");
+  // console.log(data.data);
   return data;
 }
 
-// calculate individual product price in regards to current currency
-// export function getPrice(pricesArr, currentCurrency) {
-//   return (
-//     pricesArr.map(obj => {
-//       if(obj.currency.label === currentCurrency.label) {
-//         return `${obj.currency.symbol}${obj.amount}`;
-//       }
-//     })
-//   )
-// }
-
+// singular product price
 export function getPrice(pricesArr, currentCurrency) {
   let price = 0;
   pricesArr.map(obj => obj.currency.label === currentCurrency.label ? price = obj.amount : "")
@@ -42,12 +32,14 @@ export function getTotalQuantity(cartArr) {
   return totalQuantity;
 }
 
+// generate id from baseID and selected attributes
 export function generateCartItemID(baseID, selectedAttrArr) {
   let id = baseID;
   selectedAttrArr.map(attr => id += `-${attr.value}`);
   return id.toLowerCase();
 }
 
+// returns cartItem for CartPage and MiniCart
 export function generateCartItem(product, selectedAttributesArr) {
   return {
     id: generateCartItemID(product.id, selectedAttributesArr),

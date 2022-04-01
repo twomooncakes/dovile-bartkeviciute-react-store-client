@@ -1,0 +1,6 @@
+.cart_heading {
+  font-weight: var(--extraBoldWeight);
+  font-size: var(--hugeFontSize);
+  text-transform: uppercase;
+  margin: 2rem 0;
+}

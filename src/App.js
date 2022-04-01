@@ -18,7 +18,6 @@ class App extends Component {
         <Header />
 
         {
-          // notification
           <Notification display={displayNotification} type={type} message={message} />
         }
 

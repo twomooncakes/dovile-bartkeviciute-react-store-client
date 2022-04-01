@@ -1,13 +1,13 @@
 import { Component } from "react";
+import css from "./styles/CartPage.module.css";
 import CartList from "../components/cart/CartList";
 
 class CartPage extends Component {
-  state = {  } 
   render() { 
     return (
       <main>
         <div>
-          <h2 className="bold-title-heading">Cart</h2>
+          <h2 className={css.cart_heading}>Cart</h2>
         </div>
         <CartList />
       </main>

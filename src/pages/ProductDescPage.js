@@ -40,7 +40,6 @@ const productByIDQuery = (productID) => {
 
 class ProductDescPage extends Component {
   static contextType = ShopContext;
-
   state = { product: {} }
 
   async componentDidMount() {
@@ -50,9 +49,7 @@ class ProductDescPage extends Component {
   }
 
   async componentDidUpdate() {
-    console.log("not shrimp");
     if(this.context.currentProductID !== this.state.product.id) {
-      console.log("shrimp");
       const productData = await queryFetch(productByIDQuery(this.context.currentProductID));
       this.setState({ product: productData.data.product });
     }
@@ -72,10 +69,8 @@ class ProductDescPage extends Component {
         <>
           <Gallery id={id} gallery={gallery} name={name}/>
           <ProductDesc product={this.state.product} />
-          
         </>
-        }
-        
+        } 
       </main>
     );
   }

@@ -48,22 +48,31 @@ body {
   scrollbar-color: var(--accentColor) var(--lightColor);
 }
 
-body::-webkit-scrollbar {
-  width: 11px;
-  height: 25%;
-  right: -1rem;
+::-webkit-scrollbar {
+  width: 8px;
 }
-body::-webkit-scrollbar-track {
-  background: var(--darkColor);
+::-webkit-scrollbar-track {
+  background: transparent;
 }
-body::-webkit-scrollbar-thumb {
-  background-color: var(--darkColor) ;
-  border-radius: 6px;
-  border: 3px solid var(--darkColor);
+::-webkit-scrollbar-thumb {
+  background-color: var(--accentColor) ;
 }
 
 h1, h2, h3 {
   font-weight: 400;
+}
+
+ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 a {
@@ -97,23 +106,13 @@ a {
   font-family: 'Raleway', sans-serif;
 }
 
-ul {
-  padding-left: 0;
-  list-style-type: none;
-}
-
-img {
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
+.message {
+  margin-bottom: 1.25rem;
 }
 
 .flip-x {
   transform: rotateX(180deg);
 }
-
 .flip-y {
   transform: rotateY(180deg);
 }
@@ -121,7 +120,6 @@ img {
 .regularFontWeight {
   font-weight: var(--regularWeight);
 }
-
 .boldFontWeight {
   font-weight: var(--boldWeight);
 }
@@ -160,17 +158,4 @@ main {
 }
 .darkColorTxt {
   color: var(--darkColor);
-}
-
-/* Generic Classes */
-/* Refactor later */
-.bold-title-heading {
-  font-weight: var(--boldWeight);
-  font-size: var(--hugeFontSize);
-  text-transform: uppercase;
-  margin: 2rem 0;
-}
-
-.message {
-  margin-bottom: 1.25rem;
 }

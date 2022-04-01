@@ -14,7 +14,6 @@ export class ShopProvider extends Component {
   }
 
   changeCurrentCat = (newCat) => {
-    console.log("changing category");
     this.setState({ currentCat: newCat });
     localStorage.setItem("currentCategory", newCat);
   }
@@ -25,21 +24,17 @@ export class ShopProvider extends Component {
   }
 
   changeCurrentProductID = (newProductID) => {
-    console.log("changing product");
     this.setState({ currentProductID: newProductID });
     localStorage.setItem("currentProductID", newProductID);
   }
 
   changeCartProductQuantity = (action, productID) => {
-    console.log("product quantity");
-
     if(action === "increase") {
       this.setState({ shoppingCart: this.state.shoppingCart.map(product => product.id === productID ? { ...product, quantity: product.quantity + 1} : product) })
     }
     if(action === "decrease") {
       this.setState({ shoppingCart: this.state.shoppingCart.map(product => product.id === productID ? { ...product, quantity: product.quantity - 1} : product) })
     }
-    
   }
 
   removeCartItem = (productID) => {
@@ -49,7 +44,6 @@ export class ShopProvider extends Component {
   }
 
   addToCart = (product) => {
-    console.log("adding to cart");
     if(this.state.shoppingCart.find(item => item.id === product.id)) {
       this.setState({ shoppingCart: this.state.shoppingCart.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1} : item) })
     } else {
@@ -64,7 +58,6 @@ export class ShopProvider extends Component {
   }
 
   updateCartInStorage = () => {
-    console.log("update local storage cart");
     localStorage.setItem("shoppingCart", JSON.stringify(this.state.shoppingCart));
   }
 
