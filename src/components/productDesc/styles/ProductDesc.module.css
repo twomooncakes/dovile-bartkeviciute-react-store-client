@@ -42,6 +42,15 @@
   width: 100%;
 }
 
+.disabled_btn {
+  background-color: var(--darkGreyColor);
+}
+
+.disabled_btn:hover {
+  cursor: default;
+  opacity: 1;
+}
+
 .description {
   font-family: var(--secondaryFont);
   width: 100%;

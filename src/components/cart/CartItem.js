@@ -20,7 +20,7 @@ class CartItem extends Component {
   render() { 
     const { currentCurrency } = this.context;
     const { currentImageID } = this.state;
-    const { id, name, prices, brand, attributes, gallery, selectedAttributes, quantity } = this.props.item;
+    const { id, name, prices, brand, attributes, gallery, selectedAttributes, url, quantity } = this.props.item;
     const isStandard = this.props.type === "standard";
     return (
       <div className={`${css.cart_item_container} ${isStandard ? "" : css.cart_item_mini}`}>
@@ -28,7 +28,7 @@ class CartItem extends Component {
           <div>
             <h2 className={isStandard ? css.brand : css.brand_mini}>{brand}</h2>
 
-            <Link to={`/product/${id}`}>
+            <Link onClick={() => this.context.changeCurrentProductID(url)} to={`/product/${url}`}>
               <h2 className={isStandard ? css.name : css.name_mini}>{name}</h2>
             </Link>
           </div>

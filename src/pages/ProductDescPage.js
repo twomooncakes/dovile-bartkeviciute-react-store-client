@@ -49,13 +49,21 @@ class ProductDescPage extends Component {
     this.context.changeCurrentCat(this.state.product.category);
   }
 
+  async componentDidUpdate() {
+    console.log("not shrimp");
+    if(this.context.currentProductID !== this.state.product.id) {
+      console.log("shrimp");
+      const productData = await queryFetch(productByIDQuery(this.context.currentProductID));
+      this.setState({ product: productData.data.product });
+    }
+  }
+
   componentWillUnmount() {
     this.setState({ product: {} });
   }
   
   render() { 
     const { name, id, gallery } = this.state.product;
-    console.log(this.state.product.prices);
     return (
       <main className={css.desc_page_container}>
         {

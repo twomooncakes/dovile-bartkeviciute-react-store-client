@@ -10,10 +10,14 @@ class AttributeOptions extends Component {
   }
   
   render() {
-    const { isSwatch, attr, selectedOption, displayOnly, isMini } = this.props;
+    const { isSwatch, attr, selectedOption, displayOnly, isMini, overlayStyle } = this.props;
     const { selectedAttr } = this.state; 
     return (
-      <div className={isMini ? css.mini_options : css.attribute_options}>
+      <div className={`
+        ${isMini ? css.mini_options : css.attribute_options}
+        ${overlayStyle ? css.overlay_style : ""}
+      `}
+      >
         {attr.items.map(item => {
           let bgColor = {};
           if(isSwatch) bgColor.backgroundColor = `${item.value}`;

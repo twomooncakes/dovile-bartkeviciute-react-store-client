@@ -11,6 +11,12 @@ class Gallery extends Component {
     this.setState({ galleryImages: this.props.gallery });
   }
 
+  componentDidUpdate() {
+    if(this.props.gallery !== this.state.galleryImages) {
+      this.setState({ galleryImages: this.props.gallery })
+    }
+  }
+
   changeSpotlightImage(imageID) {
     this.setState({ spotlightImageID: imageID });
   }
@@ -34,7 +40,7 @@ class Gallery extends Component {
           })}
         </div>
         <div className={css.gallery_spotlight}>
-          <img src={galleryImages[spotlightImageID]} />
+          <img src={galleryImages[spotlightImageID]} alt="-"/>
         </div>
       </section>
     );

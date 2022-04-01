@@ -4,7 +4,7 @@ import css from "./styles/Button.module.css";
 // primary or outline styles via type prop
 class Button extends Component {
   render() { 
-    const { children, styling, type, clickFunc } = this.props;
+    const { children, styling, type, clickFunc, disabled } = this.props;
     return (
       <button 
         className={`
@@ -14,6 +14,7 @@ class Button extends Component {
           ${styling ? styling : ""}
         `} 
         onClick={clickFunc}
+        disabled={disabled}
       >
         {children}
       </button>

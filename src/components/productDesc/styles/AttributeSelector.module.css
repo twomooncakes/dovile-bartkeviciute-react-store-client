@@ -19,3 +19,26 @@
 .attribute_name_wrapper {
   margin-bottom: 0.5rem;
 }
+
+.attribute_name_wrapper > h4 {
+  font-size: var(--smallFontSize);
+  font-family: var(--condensedFont);
+  font-weight: var(--extraBoldWeight);
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+/* Overlay styles in PLP */
+
+.attribute_selector_overlay {
+  background-color: rgba(166,166, 166, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 1rem;
+}
+
+.attribute_selector_overlay > * {
+  margin: 0;
+}

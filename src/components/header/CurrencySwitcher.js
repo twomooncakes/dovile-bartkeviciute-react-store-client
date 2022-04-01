@@ -39,11 +39,12 @@ class CurrencySwitch extends Component {
         <img 
           className={chevronToggled ? "flip-x" : ""} 
           src={Chevron} 
-          alt="vertical chevron for currency switcher" 
+          alt="vertical chevron for currency switcher"
+
         />
         {chevronToggled &&
 
-        <ul className={css.currency_overlay_wrapper}>
+        <ul className={css.currency_overlay_wrapper} onMouseLeave={this.toggleChevron}>
           {currencies.map(currency => {
             return (
               <li 

@@ -26,9 +26,13 @@ class Nav extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.setState({ categories: [] })
+  }
+
   render() { 
     return (
-      <nav>
+      <nav className={css.nav}>
         {this.state.categories.map(cat => (
           <NavLink className={(this.context.currentCat === cat) ? "active" : ""} onClick={() => this.context.changeCurrentCat(cat)} key={cat} to={`/${cat}`}>
             {cat}

@@ -4,25 +4,36 @@ import Button from "../UI/Button";
 import AttributeSelector from "./AttributeSelector";
 import PriceDisplay from "./PriceDisplay";
 import ShopContext from "../../store/ShopContext";
+import { generateCartItem } from "../../utils/helpers";
 
 class ProductDesc extends Component {
   static contextType = ShopContext;
-
-  constructor(props) {
-    super(props)
-    this.state = { 
-      product: {}, 
-      selectedAttributes: this.props.product.attributes.map(attr => {
-        return ({
-          name: attr.name,
-          value: null
-        })
-      }) 
-    }
+  state = { 
+    product: {}, 
+    selectedAttributes: this.props.product.attributes.map(attr => {
+      return ({
+        name: attr.name,
+        value: null
+      })
+    }) 
   }
 
   componentDidMount() {
     this.setState({ product: this.props.product });
+  }
+
+  componentDidUpdate() {
+    if(this.props.product !== this.state.product) {
+      this.setState({ 
+        product: this.props.product, 
+        selectedAttributes: this.props.product.attributes.map(attr => {
+          return ({
+            name: attr.name,
+            value: null
+          })
+        })  
+      })
+    }
   }
 
   componentWillUnmount() {
@@ -35,24 +46,8 @@ class ProductDesc extends Component {
     })
   }
 
-  generateCartItemID = (baseID, selectedAttrArr) => {
-    let id = baseID;
-    selectedAttrArr.map(attr => id += `-${attr.value}`);
-    return id.toLowerCase();
-  }
-
   handleAddToCart = () => {
-    let product = this.state.product;
-    let productToAdd = {
-      id: this.generateCartItemID(product.id, this.state.selectedAttributes),
-      name: product.name,
-      brand: product.brand,
-      prices: product.prices,
-      attributes: product.attributes,
-      selectedAttributes: this.state.selectedAttributes,
-      gallery: product.gallery,
-      quantity: 1,
-    }
+    let productToAdd = generateCartItem(this.state.product, this.state.selectedAttributes);
 
     // check if all attributes have selected values
     if(this.state.selectedAttributes.every((item) => item.value !== null)) {
@@ -63,11 +58,10 @@ class ProductDesc extends Component {
     }
     
     this.context.showNotification("warning", "Please select product attributes first");
-    console.log("please select attributes first");
   }
 
   render() { 
-    const { name, brand, attributes, prices, description } = this.state.product;
+    const { name, brand, attributes, prices, description, inStock } = this.state.product;
     return (
       <section className={css.product_desc}>
         <div className={css.product_title}>
@@ -83,7 +77,9 @@ class ProductDesc extends Component {
           <Button 
             type="primary"
             clickFunc={() => this.handleAddToCart()}
-          >add to cart</Button>
+            styling={!inStock ? css.disabled_btn : ""}
+            disabled={!inStock}
+          >{inStock ? "add to cart" : "sold out"}</Button>
         </div>
         
         <div 

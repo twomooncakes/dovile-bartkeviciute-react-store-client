@@ -42,6 +42,26 @@ export function getTotalQuantity(cartArr) {
   return totalQuantity;
 }
 
+export function generateCartItemID(baseID, selectedAttrArr) {
+  let id = baseID;
+  selectedAttrArr.map(attr => id += `-${attr.value}`);
+  return id.toLowerCase();
+}
+
+export function generateCartItem(product, selectedAttributesArr) {
+  return {
+    id: generateCartItemID(product.id, selectedAttributesArr),
+    name: product.name,
+    brand: product.brand,
+    prices: product.prices,
+    attributes: product.attributes,
+    selectedAttributes: selectedAttributesArr,
+    gallery: product.gallery,
+    url: product.id,
+    quantity: 1,
+  }
+}
+
 export function mod(n, m) {
   return ((n % m) + m) % m;
 }
