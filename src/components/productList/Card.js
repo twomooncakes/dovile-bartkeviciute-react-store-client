@@ -75,16 +75,15 @@ class Card extends Component {
           <h3 className={css.stock_text}>out of stock</h3>
         </div>}
 
-        <div className={css.product_image}>
-          
-          {selectAttributeView &&
+        {selectAttributeView &&
           <AttributeSelector 
             attributes={attributes} 
             selectionHandler={this.handleAttributeSelection}
             type="mini"
             overlayStyle={true} 
           />}
-          
+
+        <div className={css.product_image}>
           <img className={css.main_image} src={gallery[0]} alt={name} />
 
           {(addToCartView && inStock) && 

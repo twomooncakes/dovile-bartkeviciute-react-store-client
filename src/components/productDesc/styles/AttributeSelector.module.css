@@ -31,11 +31,14 @@
 /* Overlay styles in PLP */
 .attribute_selector_overlay {
   background-color: rgba(166,166, 166, 0.3);
+  height: 40vh;
+  width: calc(100% - 32px);
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 16px;
+  left: 16px;
   bottom: 0;
   padding: 1rem;
+  z-index: 2;
 }
 .attribute_selector_overlay > * {
   margin: 0;
