@@ -5,6 +5,7 @@ import AttributeSelector from "./AttributeSelector";
 import PriceDisplay from "./PriceDisplay";
 import ShopContext from "../../store/ShopContext";
 import { generateCartItem } from "../../utils/helpers";
+import DOMPurify from 'dompurify';
 
 class ProductDesc extends Component {
   static contextType = ShopContext;
@@ -85,7 +86,7 @@ class ProductDesc extends Component {
         <div 
           className={css.description}
           dangerouslySetInnerHTML={{
-            __html: description
+            __html: DOMPurify.sanitize(description)
           }}
         >
         </div>
