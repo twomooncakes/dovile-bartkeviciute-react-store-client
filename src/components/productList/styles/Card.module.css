@@ -1,10 +1,10 @@
 .product_card {
   padding: 16px;
-  height: 450px;
   display: flex;
   flex-direction: column;
   transition: var(--transitionValues);
   position: relative;
+  background-color: rgb(134, 167, 77);
 }
 
 .product_card:hover {
@@ -34,14 +34,14 @@
 }
 
 .product_image {
-  min-height: 338px;
-  min-width: auto;
+  height: 40vh;
   position: relative;
+  align-self: center;
 }
 
 .product_image .main_image {
   height: 100%;
-  width: 100%;
+  max-width: 100%;
   object-fit: cover;
   object-position: center;
 }
