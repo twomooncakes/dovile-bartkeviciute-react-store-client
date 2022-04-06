@@ -70,12 +70,13 @@ class Card extends Component {
         onMouseOver={() => this.toggleAddToCartView(true)} 
         onMouseLeave={() => this.toggleAddToCartView(false)}
       >
-        <div className={css.product_image}>
-          {!inStock && 
-          <div className={css.stock_text_wrapper}>
-            <h3 className={css.stock_text}>out of stock</h3>
-          </div>}
+        {!inStock && 
+        <div className={css.stock_text_wrapper}>
+          <h3 className={css.stock_text}>out of stock</h3>
+        </div>}
 
+        <div className={css.product_image}>
+          
           {selectAttributeView &&
           <AttributeSelector 
             attributes={attributes} 

@@ -4,7 +4,8 @@
   flex-direction: column;
   transition: var(--transitionValues);
   position: relative;
-  background-color: rgb(134, 167, 77);
+  /* for testing */
+  /* background-color: rgb(134, 167, 77); */
 }
 
 .product_card:hover {
@@ -17,10 +18,13 @@
 
 .stock_text_wrapper {
   background-color: rgba(225, 225, 225, 0.3);
-  width: 100%;
+  width: calc(100% - 32px);
+  height: 40vh;
   position: absolute;
-  top: 0;
+  left: 16px;
+  top: 16px;
   bottom: 0;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
