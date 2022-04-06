@@ -85,14 +85,14 @@ class Card extends Component {
 
         <div className={css.product_image}>
           <img className={css.main_image} src={gallery[0]} alt={name} />
+        </div>
 
-          {(addToCartView && inStock) && 
+        {(addToCartView && inStock) && 
           <div className={css.cart_btn_wrapper}>
             <RoundButton clickFunc={() => this.handleAddToCart()}>
               <img src={Cart} alt="cart symbol" />
             </RoundButton>
           </div>}
-        </div>
 
         <Link onClick={() => this.context.changeCurrentProductID(id)} to={`/product/${id}`}>
           <div 

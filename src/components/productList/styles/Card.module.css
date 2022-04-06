@@ -53,10 +53,12 @@
 .cart_btn_wrapper {
   display: flex;
   justify-content: flex-end;
-  position: relative;
+  position: absolute;
   bottom: 1.85rem;
   padding-right: 1rem;
   z-index: 5;
+  width: calc(100% - 2rem);
+  bottom: 5.65rem;
 }
 
 .product_info {
