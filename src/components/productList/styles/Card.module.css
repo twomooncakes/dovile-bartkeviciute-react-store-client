@@ -57,11 +57,10 @@
   display: flex;
   justify-content: flex-end;
   position: absolute;
-  bottom: 1.85rem;
+  top: 38.8vh;
   padding-right: 1rem;
   z-index: 5;
   width: calc(100% - 2rem);
-  bottom: 5.65rem;
 }
 
 .product_info {
