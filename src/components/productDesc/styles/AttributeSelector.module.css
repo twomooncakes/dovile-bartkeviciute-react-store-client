@@ -38,7 +38,7 @@
   left: 16px;
   bottom: 0;
   padding: 1rem;
-  z-index: 2;
+  z-index: 4;
 }
 .attribute_selector_overlay > * {
   margin: 0;

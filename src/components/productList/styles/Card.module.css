@@ -4,8 +4,6 @@
   flex-direction: column;
   transition: var(--transitionValues);
   position: relative;
-  /* for testing */
-  /* background-color: rgb(134, 167, 77); */
 }
 
 .product_card:hover {
@@ -35,6 +33,11 @@
   font-size: var(--mediumFontSize);
   text-transform: uppercase;
   position: absolute;
+}
+
+.image_link {
+  display: flex;
+  justify-content: center;
 }
 
 .product_image {

@@ -70,10 +70,6 @@ class Card extends Component {
         onMouseOver={() => this.toggleAddToCartView(true)} 
         onMouseLeave={() => this.toggleAddToCartView(false)}
       >
-        {!inStock && 
-        <div className={css.stock_text_wrapper}>
-          <h3 className={css.stock_text}>out of stock</h3>
-        </div>}
 
         {selectAttributeView &&
           <AttributeSelector 
@@ -83,9 +79,18 @@ class Card extends Component {
             overlayStyle={true} 
           />}
 
+        <Link className={css.image_link} onClick={() => this.context.changeCurrentProductID(id)} to={`/product/${id}`}>
+
+        {!inStock && 
+        <div className={css.stock_text_wrapper}>
+          <h3 className={css.stock_text}>out of stock</h3>
+        </div>}
+
         <div className={css.product_image}>
           <img className={css.main_image} src={gallery[0]} alt={name} />
         </div>
+
+        </Link>
 
         {(addToCartView && inStock) && 
           <div className={css.cart_btn_wrapper}>
