@@ -70,29 +70,34 @@ class Card extends Component {
         onMouseOver={() => this.toggleAddToCartView(true)} 
         onMouseLeave={() => this.toggleAddToCartView(false)}
       >
-        <div className={css.product_image}>
-          {!inStock && 
-          <div className={css.stock_text_wrapper}>
-            <h3 className={css.stock_text}>out of stock</h3>
-          </div>}
 
-          {selectAttributeView &&
+        {selectAttributeView &&
           <AttributeSelector 
             attributes={attributes} 
             selectionHandler={this.handleAttributeSelection}
             type="mini"
             overlayStyle={true} 
           />}
-          
-          <img className={css.main_image} src={gallery[0]} alt={name} />
 
-          {(addToCartView && inStock) && 
+        <Link className={css.image_link} onClick={() => this.context.changeCurrentProductID(id)} to={`/product/${id}`}>
+
+        {!inStock && 
+        <div className={css.stock_text_wrapper}>
+          <h3 className={css.stock_text}>out of stock</h3>
+        </div>}
+
+        <div className={css.product_image}>
+          <img className={css.main_image} src={gallery[0]} alt={name} />
+        </div>
+
+        </Link>
+
+        {(addToCartView && inStock) && 
           <div className={css.cart_btn_wrapper}>
             <RoundButton clickFunc={() => this.handleAddToCart()}>
               <img src={Cart} alt="cart symbol" />
             </RoundButton>
           </div>}
-        </div>
 
         <Link onClick={() => this.context.changeCurrentProductID(id)} to={`/product/${id}`}>
           <div 
